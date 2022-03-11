@@ -7,8 +7,7 @@
 
 import UIKit
 
-class MasterViewController: UITableViewController
-{
+class MasterViewController: UITableViewController {
   weak var detailViewController: DetailViewController?
   weak var delegate: CalEntrySelectionDelegate?
   
@@ -80,11 +79,9 @@ class MasterViewController: UITableViewController
   
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     
-    if let entry = calDocument.getEntryForRowAt(section: indexPath.section, rowToGet: indexPath.row)
-    {
+    if let entry = calDocument.getEntryForRowAt(section: indexPath.section, rowToGet: indexPath.row) {
       // If the selected row is expandable then toggle its "is expanded" status
-      if entry.isExpandable == true
-      {
+      if entry.isExpandable == true {
         calDocument.toggleIsExpanded(entry: entry)
         
         // Reload the table
@@ -121,8 +118,7 @@ class MasterViewController: UITableViewController
     // This is the first time the data has been loaded.
     // Get the first entry in the list and set the detail view controller
     
-    if let entry = calDocument.getEntryForRowAt(section: 0, rowToGet: 0)
-    {
+    if let entry = calDocument.getEntryForRowAt(section: 0, rowToGet: 0) {
       firstEntry = entry
       detailViewController?.entry = entry
     }

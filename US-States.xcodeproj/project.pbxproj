@@ -209,11 +209,11 @@
 				33CBE87027DB545400A1658B /* CalDocument.swift */,
 				33CBE87427DB545400A1658B /* CalDocumentFields.swift */,
 				33CBE86E27DB545400A1658B /* CalEntry.swift */,
+				339DDF0227DB9E1900603603 /* CalEntrySelectionDelegate.swift */,
 				33CBE86D27DB545400A1658B /* CalPage.swift */,
 				33CBE87327DB545400A1658B /* CalParser.swift */,
 				33CBE86F27DB545400A1658B /* CalSearchEngine.swift */,
 				33CBE87127DB545400A1658B /* CalText.swift */,
-				339DDF0227DB9E1900603603 /* CalEntrySelectionDelegate.swift */,
 			);
 			path = "Calandra Document";
 			sourceTree = "<group>";

@@ -108,8 +108,6 @@ class DetailViewController: UIViewController {
             textView.text = ""
             textView.attributedText  = NSMutableAttributedString(attributedString: pageAsAttributedText).setFont(textView.font!)
           } else {
-//            titleLabelH3.text = ""
-//            titleLabelH4.text = ""
             textView.attributedText  = NSMutableAttributedString()
           }
         }
