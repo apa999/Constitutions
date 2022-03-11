@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		339DDF0327DB9E1900603603 /* CalEntrySelectionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339DDF0227DB9E1900603603 /* CalEntrySelectionDelegate.swift */; };
 		33CBE82F27DB537D00A1658B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33CBE82E27DB537D00A1658B /* AppDelegate.swift */; };
 		33CBE83127DB537D00A1658B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33CBE83027DB537D00A1658B /* SceneDelegate.swift */; };
 		33CBE83327DB537D00A1658B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33CBE83227DB537D00A1658B /* ViewController.swift */; };
@@ -52,6 +53,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		339DDF0227DB9E1900603603 /* CalEntrySelectionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalEntrySelectionDelegate.swift; sourceTree = "<group>"; };
 		33CBE82B27DB537D00A1658B /* US-States.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "US-States.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		33CBE82E27DB537D00A1658B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		33CBE83027DB537D00A1658B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -211,6 +213,7 @@
 				33CBE87327DB545400A1658B /* CalParser.swift */,
 				33CBE86F27DB545400A1658B /* CalSearchEngine.swift */,
 				33CBE87127DB545400A1658B /* CalText.swift */,
+				339DDF0227DB9E1900603603 /* CalEntrySelectionDelegate.swift */,
 			);
 			path = "Calandra Document";
 			sourceTree = "<group>";
@@ -349,6 +352,7 @@
 			files = (
 				33CBE86A27DB544300A1658B /* SearchBarDelegate.swift in Sources */,
 				33CBE86927DB544300A1658B /* MasterViewController.swift in Sources */,
+				339DDF0327DB9E1900603603 /* CalEntrySelectionDelegate.swift in Sources */,
 				33CBE83327DB537D00A1658B /* ViewController.swift in Sources */,
 				33CBE87527DB545400A1658B /* CalPage.swift in Sources */,
 				33CBE82F27DB537D00A1658B /* AppDelegate.swift in Sources */,

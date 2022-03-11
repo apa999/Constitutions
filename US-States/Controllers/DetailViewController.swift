@@ -94,6 +94,8 @@ class DetailViewController: UIViewController {
   /// Configures the screen
   private func configureScreen() {
     
+    loadViewIfNeeded()
+    
     if calDocument.mode == .fullList {
       // Update the user interface for the detail item.
       if let entry = entry {
@@ -168,5 +170,11 @@ class DetailViewController: UIViewController {
     navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search,
                                                         target: self,
                                                         action: #selector(search))
+  }
+}
+
+extension DetailViewController: CalEntrySelectionDelegate {
+  func entrySelected(_ newEntry: CalEntry) {
+    entry = newEntry
   }
 }

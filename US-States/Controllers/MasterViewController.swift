@@ -10,6 +10,9 @@ import UIKit
 class MasterViewController: UITableViewController
 {
   weak var detailViewController: DetailViewController?
+  weak var delegate: CalEntrySelectionDelegate?
+  
+  var firstEntry: CalEntry?
   
   // MARK: - Life cycle
   override func viewDidLoad() {
@@ -88,13 +91,20 @@ class MasterViewController: UITableViewController
         tableView.reloadData()
       }
       
-      // Update the detail view controller with the selected row
-      detailViewController?.entry = entry
+      delegate?.entrySelected(entry)
+      
+      if
+        let detailViewController = delegate as? DetailViewController,
+        let detailNavigationController = detailViewController.navigationController {
+          splitViewController?.showDetailViewController(detailNavigationController, sender: nil)
+      }
       
       // Highlight the selected row
       self.tableView.selectRow(at: indexPath, animated: false, scrollPosition: .middle)
     }
   }
+  
+  
   
   //MARK: - Observers
   
@@ -113,6 +123,7 @@ class MasterViewController: UITableViewController
     
     if let entry = calDocument.getEntryForRowAt(section: 0, rowToGet: 0)
     {
+      firstEntry = entry
       detailViewController?.entry = entry
     }
   }
