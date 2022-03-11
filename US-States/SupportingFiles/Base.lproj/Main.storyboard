@@ -96,8 +96,14 @@
                                 <color key="textColor" systemColor="systemBlueColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="evC-J3-haf">
+                                <rect key="frame" x="10" y="125" width="394" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" systemColor="systemBlueColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="OXj-zq-Vxu">
-                                <rect key="frame" x="10" y="123" width="394" height="729"/>
+                                <rect key="frame" x="10" y="135" width="394" height="717"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
@@ -109,9 +115,11 @@
                         <constraints>
                             <constraint firstItem="3Sx-6Y-qDO" firstAttribute="top" secondItem="6sI-gF-w1i" secondAttribute="top" id="1Ra-6a-ORc"/>
                             <constraint firstItem="Vue-5e-gLM" firstAttribute="top" secondItem="boG-qt-qJU" secondAttribute="bottom" constant="10" id="2LM-7Q-8l8"/>
-                            <constraint firstItem="OXj-zq-Vxu" firstAttribute="top" secondItem="Vue-5e-gLM" secondAttribute="bottom" constant="8" symbolic="YES" id="4D9-9L-cT5"/>
                             <constraint firstItem="6sI-gF-w1i" firstAttribute="bottom" secondItem="OXj-zq-Vxu" secondAttribute="bottom" constant="10" id="BtI-QS-LvJ"/>
+                            <constraint firstItem="OXj-zq-Vxu" firstAttribute="top" secondItem="evC-J3-haf" secondAttribute="bottom" constant="10" id="CZ6-Ox-iJt"/>
+                            <constraint firstItem="evC-J3-haf" firstAttribute="top" secondItem="Vue-5e-gLM" secondAttribute="bottom" constant="10" id="ImY-CL-Jhc"/>
                             <constraint firstItem="6sI-gF-w1i" firstAttribute="trailing" secondItem="3Sx-6Y-qDO" secondAttribute="trailing" id="Jhw-b7-ugh"/>
+                            <constraint firstItem="6sI-gF-w1i" firstAttribute="trailing" secondItem="evC-J3-haf" secondAttribute="trailing" constant="10" id="QCh-V9-Teg"/>
                             <constraint firstItem="6sI-gF-w1i" firstAttribute="trailing" secondItem="Vue-5e-gLM" secondAttribute="trailing" constant="10" id="VLh-4w-fJC"/>
                             <constraint firstItem="OXj-zq-Vxu" firstAttribute="leading" secondItem="6sI-gF-w1i" secondAttribute="leading" constant="10" id="amL-zb-OSC"/>
                             <constraint firstItem="boG-qt-qJU" firstAttribute="leading" secondItem="6sI-gF-w1i" secondAttribute="leading" constant="10" id="dNL-Eu-ojD"/>
@@ -120,17 +128,20 @@
                             <constraint firstItem="boG-qt-qJU" firstAttribute="top" secondItem="3Sx-6Y-qDO" secondAttribute="bottom" constant="10" id="pwT-8c-X4q"/>
                             <constraint firstItem="6sI-gF-w1i" firstAttribute="trailing" secondItem="OXj-zq-Vxu" secondAttribute="trailing" constant="10" id="seL-67-FxE"/>
                             <constraint firstItem="Vue-5e-gLM" firstAttribute="leading" secondItem="6sI-gF-w1i" secondAttribute="leading" constant="10" id="vaT-i7-d63"/>
+                            <constraint firstItem="evC-J3-haf" firstAttribute="leading" secondItem="6sI-gF-w1i" secondAttribute="leading" constant="10" id="vl1-7q-ys2"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="searchBar" destination="3Sx-6Y-qDO" id="OhJ-XH-fKF"/>
                         <outlet property="textView" destination="OXj-zq-Vxu" id="de4-GM-VLa"/>
-                        <outlet property="titleLabelH3" destination="Vue-5e-gLM" id="o04-R7-lbV"/>
+                        <outlet property="titleLabel1" destination="boG-qt-qJU" id="bBv-Af-D2Y"/>
+                        <outlet property="titleLabel2" destination="Vue-5e-gLM" id="kMV-Kk-si7"/>
+                        <outlet property="titleLabel3" destination="evC-J3-haf" id="00f-dH-Du2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vw2-Vu-dLX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1306" y="533"/>
+            <point key="canvasLocation" x="1305.7971014492755" y="532.36607142857144"/>
         </scene>
         <!--States-->
         <scene sceneID="EPx-fz-FFP">

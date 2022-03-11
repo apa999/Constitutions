@@ -10,9 +10,11 @@ import AVFoundation
 
 class SearchViewController: UIViewController, UISearchBarDelegate {
   @IBOutlet weak var searchBar: UISearchBar!
+  @IBOutlet weak var titleLabel1: UILabel!
+  @IBOutlet weak var titleLabel2: UILabel!
+  @IBOutlet weak var titleLabel3: UILabel!
   @IBOutlet weak var textView: UITextView!
-  @IBOutlet weak var titleLabelH3: UILabel!
-  @IBOutlet weak var titleLabelH4: UILabel!
+ 
   
   var entry: CalEntry? {
     didSet{
@@ -99,10 +101,12 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
   /// Configures the screen
   private func configureScreen() {
     
+    loadViewIfNeeded()
     
     // Update the user interface for the detail item.
+    // Update the user interface for the detail item.
     if let entry = entry {
-      if let _ = titleLabelH3 {
+      if let _ = titleLabel3 {
         setLabels(entry: entry)
         
         if let page = entry.page {
@@ -111,9 +115,6 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
           textView.text = ""
           textView.attributedText  = NSMutableAttributedString(attributedString: pageAsAttributedText).setFont(textView.font!)
         } else {
-          // No page
-          titleLabelH3.text = ""
-          titleLabelH4.text = ""
           textView.attributedText  = NSMutableAttributedString()
         }
       }
@@ -121,19 +122,36 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
   }
   
   /// Sets the title and labels for the entry
+  /// Sets the title and labels for the entry
   private func setLabels(entry: CalEntry) {
     
-    title = "\(entry.title) - \(entry.id)"
+    titleLabel1.isHidden = false
+    titleLabel2.isHidden = false
+    titleLabel3.isHidden = false
     
-    switch entry.type {
-      case .H1: break
-      case .H2:
-        titleLabelH3.text = ""
-        titleLabelH4.text = ""
-      case .H3: titleLabelH3.text = entry.title
-      case .H4: titleLabelH4.text = entry.title
-      default: break
+    guard let originalEntry = calDocument.getEntryWith(id: entry.copiedId)  else { return }
+    
+    let parents = calDocument.getParentsFor(entry: originalEntry)
+    
+    var titleToDisplay = ""
+    for p in parents {
+      titleToDisplay += "\(p.title) - "
     }
+    
+    title            = ""
+    titleLabel1.text = ""
+    titleLabel2.text = ""
+    titleLabel3.text = ""
+    
+    let h2 = parents.first(where: {$0.type == .H2 })
+    let h3 = parents.first(where: {$0.type == .H3 })
+    let h4 = parents.first(where: {$0.type == .H4 })
+    let h5 = parents.first(where: {$0.type == .H5 })
+    
+    if let h2 = h2 { title            = "\(h2.title)" }
+    if let h3 = h3 { titleLabel1.text = "\(h3.title)" } else {titleLabel1.isHidden = true }
+    if let h4 = h4 { titleLabel2.text = "\(h4.title)" } else {titleLabel2.isHidden = true }
+    if let h5 = h5 { titleLabel3.text = "\(h5.title)" } else {titleLabel3.isHidden = true }
   }
   
   private func setUp() {

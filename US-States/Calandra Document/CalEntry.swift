@@ -49,6 +49,7 @@ class CalEntry: CustomStringConvertible, NSCopying
   var parentId      = -1
   var children      = [CalEntry]()
   var page           : CalPage?
+  var copiedId      = -1
   
   var isExpandable : Bool {
     return children.count > 0 ? true : false
@@ -100,6 +101,7 @@ class CalEntry: CustomStringConvertible, NSCopying
                         parentId: -1)
     
     copy.sectionId = 0
+    copy.copiedId  = id
     
     return copy
   }

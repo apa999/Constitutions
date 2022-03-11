@@ -223,7 +223,7 @@ class CalDocument
   /// - Returns:The entry for the id
   func getEntryWith(id: Int) -> CalEntry?
   {
-    return entries.first(where: {$0.id == id})
+    return loadedEntries.first(where: {$0.id == id})
   }
   
   /// Gets the Entry for the section and row number
