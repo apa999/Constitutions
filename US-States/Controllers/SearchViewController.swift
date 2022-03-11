@@ -26,6 +26,8 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
   
   var currentPage : CalPage?
   
+  var searchText = ""
+  
   enum SearchType {
     case all, h1, h2, h3, h4, h5, h6
   }
@@ -60,6 +62,8 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
   func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
     if let searchText = searchBar.text
     {
+      self.searchText = searchText
+      
       calDocument.search(forString: searchText)
    
       calDocument.mode = .search
@@ -112,13 +116,35 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
         if let page = entry.page {
           currentPage = page
           let pageAsAttributedText = CalAttributableString.calPageAsAttributedString(calPage: page)
+          let highlightedText      = generateAttributedString(with: searchText,
+                                                              targetString: pageAsAttributedText)
           textView.text = ""
-          textView.attributedText  = NSMutableAttributedString(attributedString: pageAsAttributedText).setFont(textView.font!)
+          textView.attributedText  = NSMutableAttributedString(attributedString: highlightedText ?? pageAsAttributedText).setFont(textView.font!)
         } else {
           textView.attributedText  = NSMutableAttributedString()
         }
       }
     }
+  }
+  
+  /// Highlights the search string in the text
+  private func generateAttributedString(with searchTerm: String,
+                                        targetString: NSAttributedString) -> NSAttributedString? {
+      let attributedString = NSMutableAttributedString(attributedString: targetString)
+      do {
+        let regex = try NSRegularExpression(pattern:  NSRegularExpression.escapedPattern(for: searchTerm).trimmingCharacters(in: .whitespacesAndNewlines).folding(options: .regularExpression, locale: .current), options: .caseInsensitive)
+          
+        let range = NSRange(location: 0, length: targetString.string.utf16.count)
+          attributedString.addAttribute(NSAttributedString.Key.backgroundColor, value: UIColor.clear, range: range)
+        
+        for match in regex.matches(in: targetString.string.folding(options: .regularExpression, locale: .current), options: .withTransparentBounds, range: range) {
+              attributedString.addAttribute(NSAttributedString.Key.backgroundColor, value: UIColor.yellow, range: match.range)
+          }
+          return attributedString
+      } catch {
+          NSLog("Error creating regular expresion: \(error)")
+          return nil
+      }
   }
   
   /// Sets the title and labels for the entry
