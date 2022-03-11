@@ -16,6 +16,22 @@
 		33CBE84627DB537E00A1658B /* US_StatesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33CBE84527DB537E00A1658B /* US_StatesTests.swift */; };
 		33CBE85027DB537E00A1658B /* US_StatesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33CBE84F27DB537E00A1658B /* US_StatesUITests.swift */; };
 		33CBE85227DB537E00A1658B /* US_StatesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33CBE85127DB537E00A1658B /* US_StatesUITestsLaunchTests.swift */; };
+		33CBE86827DB544300A1658B /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33CBE86327DB544300A1658B /* SearchViewController.swift */; };
+		33CBE86927DB544300A1658B /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33CBE86427DB544300A1658B /* MasterViewController.swift */; };
+		33CBE86A27DB544300A1658B /* SearchBarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33CBE86527DB544300A1658B /* SearchBarDelegate.swift */; };
+		33CBE86B27DB544300A1658B /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33CBE86627DB544300A1658B /* NavigationController.swift */; };
+		33CBE86C27DB544300A1658B /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33CBE86727DB544300A1658B /* DetailViewController.swift */; };
+		33CBE87527DB545400A1658B /* CalPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33CBE86D27DB545400A1658B /* CalPage.swift */; };
+		33CBE87627DB545400A1658B /* CalEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33CBE86E27DB545400A1658B /* CalEntry.swift */; };
+		33CBE87727DB545400A1658B /* CalSearchEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33CBE86F27DB545400A1658B /* CalSearchEngine.swift */; };
+		33CBE87827DB545400A1658B /* CalDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33CBE87027DB545400A1658B /* CalDocument.swift */; };
+		33CBE87927DB545400A1658B /* CalText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33CBE87127DB545400A1658B /* CalText.swift */; };
+		33CBE87A27DB545400A1658B /* CalAttributableString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33CBE87227DB545400A1658B /* CalAttributableString.swift */; };
+		33CBE87B27DB545400A1658B /* CalParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33CBE87327DB545400A1658B /* CalParser.swift */; };
+		33CBE87C27DB545400A1658B /* CalDocumentFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33CBE87427DB545400A1658B /* CalDocumentFields.swift */; };
+		33CBE87F27DB546200A1658B /* CalandarExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33CBE87D27DB546200A1658B /* CalandarExtension.swift */; };
+		33CBE88027DB546200A1658B /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33CBE87E27DB546200A1658B /* Notifications.swift */; };
+		33CBE88227DB548000A1658B /* AllStates.xml in Resources */ = {isa = PBXBuildFile; fileRef = 33CBE88127DB548000A1658B /* AllStates.xml */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +65,22 @@
 		33CBE84B27DB537E00A1658B /* US-StatesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "US-StatesUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		33CBE84F27DB537E00A1658B /* US_StatesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = US_StatesUITests.swift; sourceTree = "<group>"; };
 		33CBE85127DB537E00A1658B /* US_StatesUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = US_StatesUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		33CBE86327DB544300A1658B /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		33CBE86427DB544300A1658B /* MasterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
+		33CBE86527DB544300A1658B /* SearchBarDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBarDelegate.swift; sourceTree = "<group>"; };
+		33CBE86627DB544300A1658B /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
+		33CBE86727DB544300A1658B /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		33CBE86D27DB545400A1658B /* CalPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalPage.swift; sourceTree = "<group>"; };
+		33CBE86E27DB545400A1658B /* CalEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalEntry.swift; sourceTree = "<group>"; };
+		33CBE86F27DB545400A1658B /* CalSearchEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalSearchEngine.swift; sourceTree = "<group>"; };
+		33CBE87027DB545400A1658B /* CalDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalDocument.swift; sourceTree = "<group>"; };
+		33CBE87127DB545400A1658B /* CalText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalText.swift; sourceTree = "<group>"; };
+		33CBE87227DB545400A1658B /* CalAttributableString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalAttributableString.swift; sourceTree = "<group>"; };
+		33CBE87327DB545400A1658B /* CalParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalParser.swift; sourceTree = "<group>"; };
+		33CBE87427DB545400A1658B /* CalDocumentFields.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalDocumentFields.swift; sourceTree = "<group>"; };
+		33CBE87D27DB546200A1658B /* CalandarExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalandarExtension.swift; sourceTree = "<group>"; };
+		33CBE87E27DB546200A1658B /* Notifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
+		33CBE88127DB548000A1658B /* AllStates.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = AllStates.xml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,13 +131,12 @@
 		33CBE82D27DB537D00A1658B /* US-States */ = {
 			isa = PBXGroup;
 			children = (
-				33CBE82E27DB537D00A1658B /* AppDelegate.swift */,
-				33CBE83027DB537D00A1658B /* SceneDelegate.swift */,
-				33CBE83227DB537D00A1658B /* ViewController.swift */,
-				33CBE83427DB537D00A1658B /* Main.storyboard */,
-				33CBE83727DB537E00A1658B /* Assets.xcassets */,
-				33CBE83927DB537E00A1658B /* LaunchScreen.storyboard */,
+				33CBE86127DB53A400A1658B /* Calandra */,
+				33CBE86227DB53AB00A1658B /* Calandra Document */,
+				33CBE85F27DB539600A1658B /* Controllers */,
+				33CBE86027DB539E00A1658B /* Data */,
 				33CBE83C27DB537E00A1658B /* Info.plist */,
+				33CBE85E27DB538C00A1658B /* SupportingFiles */,
 			);
 			path = "US-States";
 			sourceTree = "<group>";
@@ -125,6 +156,63 @@
 				33CBE85127DB537E00A1658B /* US_StatesUITestsLaunchTests.swift */,
 			);
 			path = "US-StatesUITests";
+			sourceTree = "<group>";
+		};
+		33CBE85E27DB538C00A1658B /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				33CBE82E27DB537D00A1658B /* AppDelegate.swift */,
+				33CBE83027DB537D00A1658B /* SceneDelegate.swift */,
+				33CBE83427DB537D00A1658B /* Main.storyboard */,
+				33CBE83727DB537E00A1658B /* Assets.xcassets */,
+				33CBE83927DB537E00A1658B /* LaunchScreen.storyboard */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		33CBE85F27DB539600A1658B /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				33CBE86727DB544300A1658B /* DetailViewController.swift */,
+				33CBE86427DB544300A1658B /* MasterViewController.swift */,
+				33CBE86627DB544300A1658B /* NavigationController.swift */,
+				33CBE86527DB544300A1658B /* SearchBarDelegate.swift */,
+				33CBE86327DB544300A1658B /* SearchViewController.swift */,
+				33CBE83227DB537D00A1658B /* ViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		33CBE86027DB539E00A1658B /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				33CBE88127DB548000A1658B /* AllStates.xml */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		33CBE86127DB53A400A1658B /* Calandra */ = {
+			isa = PBXGroup;
+			children = (
+				33CBE87D27DB546200A1658B /* CalandarExtension.swift */,
+				33CBE87E27DB546200A1658B /* Notifications.swift */,
+			);
+			path = Calandra;
+			sourceTree = "<group>";
+		};
+		33CBE86227DB53AB00A1658B /* Calandra Document */ = {
+			isa = PBXGroup;
+			children = (
+				33CBE87227DB545400A1658B /* CalAttributableString.swift */,
+				33CBE87027DB545400A1658B /* CalDocument.swift */,
+				33CBE87427DB545400A1658B /* CalDocumentFields.swift */,
+				33CBE86E27DB545400A1658B /* CalEntry.swift */,
+				33CBE86D27DB545400A1658B /* CalPage.swift */,
+				33CBE87327DB545400A1658B /* CalParser.swift */,
+				33CBE86F27DB545400A1658B /* CalSearchEngine.swift */,
+				33CBE87127DB545400A1658B /* CalText.swift */,
+			);
+			path = "Calandra Document";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,6 +320,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				33CBE83B27DB537E00A1658B /* LaunchScreen.storyboard in Resources */,
+				33CBE88227DB548000A1658B /* AllStates.xml in Resources */,
 				33CBE83827DB537E00A1658B /* Assets.xcassets in Resources */,
 				33CBE83627DB537D00A1658B /* Main.storyboard in Resources */,
 			);
@@ -258,9 +347,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33CBE86A27DB544300A1658B /* SearchBarDelegate.swift in Sources */,
+				33CBE86927DB544300A1658B /* MasterViewController.swift in Sources */,
 				33CBE83327DB537D00A1658B /* ViewController.swift in Sources */,
+				33CBE87527DB545400A1658B /* CalPage.swift in Sources */,
 				33CBE82F27DB537D00A1658B /* AppDelegate.swift in Sources */,
+				33CBE87727DB545400A1658B /* CalSearchEngine.swift in Sources */,
+				33CBE87B27DB545400A1658B /* CalParser.swift in Sources */,
+				33CBE87A27DB545400A1658B /* CalAttributableString.swift in Sources */,
+				33CBE87C27DB545400A1658B /* CalDocumentFields.swift in Sources */,
+				33CBE87927DB545400A1658B /* CalText.swift in Sources */,
+				33CBE87F27DB546200A1658B /* CalandarExtension.swift in Sources */,
+				33CBE86827DB544300A1658B /* SearchViewController.swift in Sources */,
+				33CBE88027DB546200A1658B /* Notifications.swift in Sources */,
+				33CBE87827DB545400A1658B /* CalDocument.swift in Sources */,
+				33CBE86B27DB544300A1658B /* NavigationController.swift in Sources */,
 				33CBE83127DB537D00A1658B /* SceneDelegate.swift in Sources */,
+				33CBE86C27DB544300A1658B /* DetailViewController.swift in Sources */,
+				33CBE87627DB545400A1658B /* CalEntry.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
