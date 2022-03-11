@@ -122,6 +122,10 @@ class DetailViewController: UIViewController {
   /// Sets the title and labels for the entry
   private func setLabels(entry: CalEntry) {
     
+    titleLabel1.isHidden = false
+    titleLabel2.isHidden = false
+    titleLabel3.isHidden = false
+    
     let parents = calDocument.getParentsFor(entry: entry)
     
     var titleToDisplay = ""
@@ -129,21 +133,20 @@ class DetailViewController: UIViewController {
       titleToDisplay += "\(p.title) - "
     }
     
-    title = "\(titleToDisplay)"
-  
-    switch entry.type {
-      case .H1: break
-      case .H2:
-        titleLabel1.text = ""
-        titleLabel2.text = ""
-        titleLabel3.text = ""
-      case .H3:
-        titleLabel2.text = entry.title
-      case .H4:
-        titleLabel2.text = parents[3].title
-        titleLabel3.text = entry.title
-      default: break
-    }
+    title            = ""
+    titleLabel1.text = ""
+    titleLabel2.text = ""
+    titleLabel3.text = ""
+    
+    let h2 = parents.first(where: {$0.type == .H2 })
+    let h3 = parents.first(where: {$0.type == .H3 })
+    let h4 = parents.first(where: {$0.type == .H4 })
+    let h5 = parents.first(where: {$0.type == .H5 })
+    
+    if let h2 = h2 { title            = "\(h2.title)" }
+    if let h3 = h3 { titleLabel1.text = "\(h3.title)" } else {titleLabel1.isHidden = true }
+    if let h4 = h4 { titleLabel2.text = "\(h4.title)" } else {titleLabel2.isHidden = true }
+    if let h5 = h5 { titleLabel3.text = "\(h5.title)" } else {titleLabel3.isHidden = true }
   }
   
   private func setUp() {
