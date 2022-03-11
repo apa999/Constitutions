@@ -13,6 +13,6 @@ class NavigationController: UINavigationController {
     super.viewDidLoad()
     
     self.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.systemBlue,
-                                              .font: UIFont.systemFont(ofSize: 24.0, weight: .bold)]
+                                              .font: UIFont.systemFont(ofSize: 24.0, weight: .regular)]
   }
 }
