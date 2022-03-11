@@ -8,8 +8,7 @@
 import UIKit
 import AVFoundation
 
-class SearchViewController: UIViewController, UISearchBarDelegate
-{
+class SearchViewController: UIViewController, UISearchBarDelegate {
   @IBOutlet weak var searchBar: UISearchBar!
   @IBOutlet weak var textView: UITextView!
   @IBOutlet weak var titleLabelH3: UILabel!
