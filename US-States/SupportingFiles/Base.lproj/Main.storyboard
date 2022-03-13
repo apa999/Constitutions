@@ -200,7 +200,7 @@
         <!--Split View Controller-->
         <scene sceneID="yK0-bR-3OV">
             <objects>
-                <splitViewController title="Split View Controller" allowDoubleColumnStyle="YES" id="r4w-Xs-ZCo" sceneMemberID="viewController">
+                <splitViewController title="Split View Controller" allowDoubleColumnStyle="YES" id="r4w-Xs-ZCo" customClass="SplitViewController" customModule="US_States" customModuleProvider="target" sceneMemberID="viewController">
                     <connections>
                         <segue destination="Pdk-Uh-CXa" kind="relationship" relationship="masterViewController" id="v8C-eb-tkq"/>
                         <segue destination="HYa-MK-E7H" kind="relationship" relationship="detailViewController" id="LgP-5B-uen"/>
@@ -209,6 +209,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aK7-Zy-kt7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1326" y="236"/>
+        </scene>
+        <!--Onboarding View Controller-->
+        <scene sceneID="zDE-RI-VI7">
+            <objects>
+                <viewController storyboardIdentifier="OnboardingViewController" id="4Rn-Gn-gKh" customClass="OnboardingViewController" customModule="US_States" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7ia-1P-wWh">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="HaI-X4-RmL"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Dnx-3p-3Ad"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vrs-h2-dM2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="474" y="1267"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="s0I-BQ-uZC">
