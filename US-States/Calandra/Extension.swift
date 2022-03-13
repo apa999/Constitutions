@@ -7,6 +7,18 @@
 //
 
 import Foundation
+import UIKit
+
+//MARK: - Bundle
+extension Bundle {
+  var releaseVersionNumber: String? {
+    return infoDictionary?["CFBundleShortVersionString"] as? String
+  }
+  
+  var buildVersionNumber: String? {
+    return infoDictionary?["CFBundleVersion"] as? String
+  }
+}
 
 //MARK: - Calendar
 extension Calendar {
@@ -50,6 +62,75 @@ extension Calendar {
   }
 }
 
+//MARK: - Date
+extension Date {
+  static func - (lhs: Date, rhs: Date) -> TimeInterval {
+    return lhs.timeIntervalSinceReferenceDate - rhs.timeIntervalSinceReferenceDate
+  }
+  
+  static var yesterday: Date { return Date().yesterday }
+  static var tomorrow:  Date { return Date().tomorrow }
+  
+  var yesterday: Date {
+    return Calendar.current.date(byAdding: .day, value: -1, to: noon)!
+  }
+  
+  var tomorrow: Date {
+    return Calendar.current.date(byAdding: .day, value: 1, to: noon)!
+  }
+  
+  var noon: Date {
+    return Calendar.current.date(bySettingHour: 12, minute: 0, second: 0, of: self)!
+  }
+  
+  var month: Int {
+    return Calendar.current.component(.month,  from: self)
+  }
+  
+  var isLastDayOfMonth: Bool {
+    return tomorrow.month != month
+  }
+  
+  static func rfc3339DateFormatter(dateAsString: String) -> String {
+    var convertedDateToReturn = ""
+    
+    let RFC3339DateFormatter = DateFormatter()
+    RFC3339DateFormatter.locale = Locale(identifier: "en_GB_POSIX")
+    RFC3339DateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
+    
+    if let d = RFC3339DateFormatter.date(from: dateAsString) {
+      let RFC3339DateFormatter1 = DateFormatter()
+      RFC3339DateFormatter1.locale = Locale(identifier: "en_GB_POSIX")
+      RFC3339DateFormatter1.dateFormat = "dd-MM-yyyy HH:mm"
+      convertedDateToReturn = RFC3339DateFormatter1.string(from: d)
+    }
+    
+    return convertedDateToReturn
+  }
+  
+  
+  func isEqual(to date: Date, toGranularity component: Calendar.Component, in calendar: Calendar = .current) -> Bool {
+    calendar.isDate(self, equalTo: date, toGranularity: component)
+  }
+  
+  func isInSameYear(as date: Date) -> Bool { isEqual(to: date, toGranularity: .year) }
+  func isInSameMonth(as date: Date) -> Bool { isEqual(to: date, toGranularity: .month) }
+  func isInSameWeek(as date: Date) -> Bool { isEqual(to: date, toGranularity: .weekOfYear) }
+  
+  func isInSameDay(as date: Date) -> Bool { Calendar.current.isDate(self, inSameDayAs: date) }
+  
+  var isInThisYear:  Bool { isInSameYear(as: Date()) }
+  var isInThisMonth: Bool { isInSameMonth(as: Date()) }
+  var isInThisWeek:  Bool { isInSameWeek(as: Date()) }
+  
+  var isInYesterday: Bool { Calendar.current.isDateInYesterday(self) }
+  var isInToday:     Bool { Calendar.current.isDateInToday(self) }
+  var isInTomorrow:  Bool { Calendar.current.isDateInTomorrow(self) }
+  
+  var isInTheFuture: Bool { self > Date() }
+  var isInThePast:   Bool { self < Date() }
+}
+
 //MARK: - Dispatch Queue
 /**
  
@@ -83,6 +164,11 @@ extension DispatchQueue {
             }
         }
     }
+}
+
+//MARK: - String
+class Env {
+  static var isIpad : Bool { return UIDevice.current.userInterfaceIdiom == .pad }
 }
 
 //MARK: - String

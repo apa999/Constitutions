@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3384D5E327DE4A2500D7E66B /* PaperOnboarding in Frameworks */ = {isa = PBXBuildFile; productRef = 3384D5E227DE4A2500D7E66B /* PaperOnboarding */; };
+		3384D5E527DE4AC400D7E66B /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3384D5E427DE4AC400D7E66B /* OnboardingViewController.swift */; };
+		3384D5E727DE4BB000D7E66B /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3384D5E627DE4BB000D7E66B /* Defaults.swift */; };
+		3384D5E927DE4E2000D7E66B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3384D5E827DE4E2000D7E66B /* Constants.swift */; };
+		3384D5EB27DE4FE500D7E66B /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3384D5EA27DE4FE500D7E66B /* SplitViewController.swift */; };
 		339DDF0327DB9E1900603603 /* CalEntrySelectionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339DDF0227DB9E1900603603 /* CalEntrySelectionDelegate.swift */; };
 		33CBE82F27DB537D00A1658B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33CBE82E27DB537D00A1658B /* AppDelegate.swift */; };
 		33CBE83127DB537D00A1658B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33CBE83027DB537D00A1658B /* SceneDelegate.swift */; };
@@ -30,7 +35,7 @@
 		33CBE87A27DB545400A1658B /* CalAttributableString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33CBE87227DB545400A1658B /* CalAttributableString.swift */; };
 		33CBE87B27DB545400A1658B /* CalParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33CBE87327DB545400A1658B /* CalParser.swift */; };
 		33CBE87C27DB545400A1658B /* CalDocumentFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33CBE87427DB545400A1658B /* CalDocumentFields.swift */; };
-		33CBE87F27DB546200A1658B /* CalandarExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33CBE87D27DB546200A1658B /* CalandarExtension.swift */; };
+		33CBE87F27DB546200A1658B /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33CBE87D27DB546200A1658B /* Extension.swift */; };
 		33CBE88027DB546200A1658B /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33CBE87E27DB546200A1658B /* Notifications.swift */; };
 		33CBE88227DB548000A1658B /* AllStates.xml in Resources */ = {isa = PBXBuildFile; fileRef = 33CBE88127DB548000A1658B /* AllStates.xml */; };
 /* End PBXBuildFile section */
@@ -53,6 +58,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3384D5E427DE4AC400D7E66B /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		3384D5E627DE4BB000D7E66B /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
+		3384D5E827DE4E2000D7E66B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		3384D5EA27DE4FE500D7E66B /* SplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitViewController.swift; sourceTree = "<group>"; };
 		339DDF0227DB9E1900603603 /* CalEntrySelectionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalEntrySelectionDelegate.swift; sourceTree = "<group>"; };
 		33CBE82B27DB537D00A1658B /* US-States.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "US-States.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		33CBE82E27DB537D00A1658B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -80,7 +89,7 @@
 		33CBE87227DB545400A1658B /* CalAttributableString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalAttributableString.swift; sourceTree = "<group>"; };
 		33CBE87327DB545400A1658B /* CalParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalParser.swift; sourceTree = "<group>"; };
 		33CBE87427DB545400A1658B /* CalDocumentFields.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalDocumentFields.swift; sourceTree = "<group>"; };
-		33CBE87D27DB546200A1658B /* CalandarExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalandarExtension.swift; sourceTree = "<group>"; };
+		33CBE87D27DB546200A1658B /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		33CBE87E27DB546200A1658B /* Notifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		33CBE88127DB548000A1658B /* AllStates.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = AllStates.xml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -90,6 +99,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3384D5E327DE4A2500D7E66B /* PaperOnboarding in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -178,8 +188,10 @@
 				33CBE86727DB544300A1658B /* DetailViewController.swift */,
 				33CBE86427DB544300A1658B /* MasterViewController.swift */,
 				33CBE86627DB544300A1658B /* NavigationController.swift */,
+				3384D5E427DE4AC400D7E66B /* OnboardingViewController.swift */,
 				33CBE86527DB544300A1658B /* SearchBarDelegate.swift */,
 				33CBE86327DB544300A1658B /* SearchViewController.swift */,
+				3384D5EA27DE4FE500D7E66B /* SplitViewController.swift */,
 				33CBE83227DB537D00A1658B /* ViewController.swift */,
 			);
 			path = Controllers;
@@ -196,7 +208,9 @@
 		33CBE86127DB53A400A1658B /* Calandra */ = {
 			isa = PBXGroup;
 			children = (
-				33CBE87D27DB546200A1658B /* CalandarExtension.swift */,
+				3384D5E827DE4E2000D7E66B /* Constants.swift */,
+				3384D5E627DE4BB000D7E66B /* Defaults.swift */,
+				33CBE87D27DB546200A1658B /* Extension.swift */,
 				33CBE87E27DB546200A1658B /* Notifications.swift */,
 			);
 			path = Calandra;
@@ -234,6 +248,9 @@
 			dependencies = (
 			);
 			name = "US-States";
+			packageProductDependencies = (
+				3384D5E227DE4A2500D7E66B /* PaperOnboarding */,
+			);
 			productName = "US-States";
 			productReference = 33CBE82B27DB537D00A1658B /* US-States.app */;
 			productType = "com.apple.product-type.application";
@@ -306,6 +323,9 @@
 				Base,
 			);
 			mainGroup = 33CBE82227DB537D00A1658B;
+			packageReferences = (
+				3384D5E127DE4A2500D7E66B /* XCRemoteSwiftPackageReference "paper-onboarding" */,
+			);
 			productRefGroup = 33CBE82C27DB537D00A1658B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -353,22 +373,26 @@
 				33CBE86A27DB544300A1658B /* SearchBarDelegate.swift in Sources */,
 				33CBE86927DB544300A1658B /* MasterViewController.swift in Sources */,
 				339DDF0327DB9E1900603603 /* CalEntrySelectionDelegate.swift in Sources */,
+				3384D5E927DE4E2000D7E66B /* Constants.swift in Sources */,
 				33CBE83327DB537D00A1658B /* ViewController.swift in Sources */,
 				33CBE87527DB545400A1658B /* CalPage.swift in Sources */,
 				33CBE82F27DB537D00A1658B /* AppDelegate.swift in Sources */,
 				33CBE87727DB545400A1658B /* CalSearchEngine.swift in Sources */,
+				3384D5E527DE4AC400D7E66B /* OnboardingViewController.swift in Sources */,
 				33CBE87B27DB545400A1658B /* CalParser.swift in Sources */,
 				33CBE87A27DB545400A1658B /* CalAttributableString.swift in Sources */,
 				33CBE87C27DB545400A1658B /* CalDocumentFields.swift in Sources */,
 				33CBE87927DB545400A1658B /* CalText.swift in Sources */,
-				33CBE87F27DB546200A1658B /* CalandarExtension.swift in Sources */,
+				33CBE87F27DB546200A1658B /* Extension.swift in Sources */,
 				33CBE86827DB544300A1658B /* SearchViewController.swift in Sources */,
 				33CBE88027DB546200A1658B /* Notifications.swift in Sources */,
+				3384D5E727DE4BB000D7E66B /* Defaults.swift in Sources */,
 				33CBE87827DB545400A1658B /* CalDocument.swift in Sources */,
 				33CBE86B27DB544300A1658B /* NavigationController.swift in Sources */,
 				33CBE83127DB537D00A1658B /* SceneDelegate.swift in Sources */,
 				33CBE86C27DB544300A1658B /* DetailViewController.swift in Sources */,
 				33CBE87627DB545400A1658B /* CalEntry.swift in Sources */,
+				3384D5EB27DE4FE500D7E66B /* SplitViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -712,6 +736,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3384D5E127DE4A2500D7E66B /* XCRemoteSwiftPackageReference "paper-onboarding" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Ramotion/paper-onboarding";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3384D5E227DE4A2500D7E66B /* PaperOnboarding */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3384D5E127DE4A2500D7E66B /* XCRemoteSwiftPackageReference "paper-onboarding" */;
+			productName = PaperOnboarding;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 33CBE82327DB537D00A1658B /* Project object */;
 }

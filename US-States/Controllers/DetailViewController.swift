@@ -31,6 +31,8 @@ class DetailViewController: UIViewController {
     super.viewDidLoad()
     
     setUp()
+    
+    show()
   }
   
   override func viewDidAppear(_ animated: Bool) {
@@ -171,6 +173,14 @@ class DetailViewController: UIViewController {
     navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search,
                                                         target: self,
                                                         action: #selector(search))
+  }
+  
+  private func show() {
+    guard let ovc = storyboard?.instantiateViewController(withIdentifier: "OnboardingViewController") as? OnboardingViewController else {
+      fatalError("Unable to load OnboardingViewController from storyboard.")
+    }
+    
+    navigationController?.pushViewController(ovc, animated: true)
   }
 }
 

@@ -218,4 +218,3 @@ class MasterViewController: UITableViewController {
                                            object: nil)
   }
 }
-
