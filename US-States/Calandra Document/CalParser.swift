@@ -42,11 +42,12 @@ class CalParser : NSObject, XMLParserDelegate {
   private var User2                 = ""
   private var User3                 = ""
   
-  //MARK:- Public
+  //MARK: - Init
   init(calDocument : CalDocument) {
     self.calDocument = calDocument
   }
   
+  //MARK: - Public
   /// Returns true if the file is found and parsed without errors
   func parse(filePath: String)-> Bool {
     var parsedOK = true
@@ -65,7 +66,7 @@ class CalParser : NSObject, XMLParserDelegate {
   func parserDidEndDocument(_ parser: XMLParser) {
   }
   
-  //MARK:- NSXMLParser delegate methods
+  //MARK: - NSXMLParser delegate methods
   func parser(_ parser: XMLParser,
               didStartElement elementName: String,
               namespaceURI: String?,
@@ -238,6 +239,7 @@ class CalParser : NSObject, XMLParserDelegate {
     }
   }
   
+  //MARK: - Private
   private func resetAttributes() {
     Alignment           = CalTextDefaults.DefaultAlignment
     BackgroundColour    = ""
