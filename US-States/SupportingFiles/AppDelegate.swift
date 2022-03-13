@@ -7,8 +7,6 @@
 
 import UIKit
 
-var calDocument = CalDocument(fileName: "AllStates")
-
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
