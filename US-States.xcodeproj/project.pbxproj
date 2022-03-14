@@ -35,7 +35,7 @@
 		33CBE87A27DB545400A1658B /* CalAttributableString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33CBE87227DB545400A1658B /* CalAttributableString.swift */; };
 		33CBE87B27DB545400A1658B /* CalParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33CBE87327DB545400A1658B /* CalParser.swift */; };
 		33CBE87C27DB545400A1658B /* CalDocumentFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33CBE87427DB545400A1658B /* CalDocumentFields.swift */; };
-		33CBE87F27DB546200A1658B /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33CBE87D27DB546200A1658B /* Extension.swift */; };
+		33CBE87F27DB546200A1658B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33CBE87D27DB546200A1658B /* Extensions.swift */; };
 		33CBE88027DB546200A1658B /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33CBE87E27DB546200A1658B /* Notifications.swift */; };
 		33CBE88227DB548000A1658B /* AllStates.xml in Resources */ = {isa = PBXBuildFile; fileRef = 33CBE88127DB548000A1658B /* AllStates.xml */; };
 /* End PBXBuildFile section */
@@ -89,7 +89,7 @@
 		33CBE87227DB545400A1658B /* CalAttributableString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalAttributableString.swift; sourceTree = "<group>"; };
 		33CBE87327DB545400A1658B /* CalParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalParser.swift; sourceTree = "<group>"; };
 		33CBE87427DB545400A1658B /* CalDocumentFields.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalDocumentFields.swift; sourceTree = "<group>"; };
-		33CBE87D27DB546200A1658B /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		33CBE87D27DB546200A1658B /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		33CBE87E27DB546200A1658B /* Notifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		33CBE88127DB548000A1658B /* AllStates.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = AllStates.xml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -210,7 +210,7 @@
 			children = (
 				3384D5E827DE4E2000D7E66B /* Constants.swift */,
 				3384D5E627DE4BB000D7E66B /* Defaults.swift */,
-				33CBE87D27DB546200A1658B /* Extension.swift */,
+				33CBE87D27DB546200A1658B /* Extensions.swift */,
 				33CBE87E27DB546200A1658B /* Notifications.swift */,
 			);
 			path = Calandra;
@@ -383,7 +383,7 @@
 				33CBE87A27DB545400A1658B /* CalAttributableString.swift in Sources */,
 				33CBE87C27DB545400A1658B /* CalDocumentFields.swift in Sources */,
 				33CBE87927DB545400A1658B /* CalText.swift in Sources */,
-				33CBE87F27DB546200A1658B /* Extension.swift in Sources */,
+				33CBE87F27DB546200A1658B /* Extensions.swift in Sources */,
 				33CBE86827DB544300A1658B /* SearchViewController.swift in Sources */,
 				33CBE88027DB546200A1658B /* Notifications.swift in Sources */,
 				3384D5E727DE4BB000D7E66B /* Defaults.swift in Sources */,
