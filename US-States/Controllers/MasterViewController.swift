@@ -90,10 +90,12 @@ class MasterViewController: UITableViewController {
       
       delegate?.entrySelected(entry)
       
-      if
-        let detailViewController = delegate as? DetailViewController,
-        let detailNavigationController = detailViewController.navigationController {
+      if let detailViewController = delegate as? DetailViewController,
+         let detailNavigationController = detailViewController.navigationController {
+        
+        if entry.type != .H1 {
           splitViewController?.showDetailViewController(detailNavigationController, sender: nil)
+        }
       }
       
       // Highlight the selected row
