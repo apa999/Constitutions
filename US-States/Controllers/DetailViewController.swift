@@ -32,7 +32,7 @@ class DetailViewController: UIViewController {
     
     setUp()
     
-    show()
+    showOnboarding()
   }
   
   override func viewDidAppear(_ animated: Bool) {
@@ -72,6 +72,15 @@ class DetailViewController: UIViewController {
     searchViewController?.entry = entry
     searchViewController?.masterViewController = masterViewController
     navigationController?.pushViewController(searchViewController!, animated: true)
+  }
+  
+  /**
+   The user has long-pressed in the home screen so show the onboarding
+   */
+  @objc func showOnboardingByRequest(_ recogniser: UITapGestureRecognizer) {
+    if (recogniser.state == UITapGestureRecognizer.State.ended ) {
+      showOnBoardingLaunch()
+    }
   }
   
   // MARK: - Private functions
@@ -173,9 +182,34 @@ class DetailViewController: UIViewController {
     navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search,
                                                         target: self,
                                                         action: #selector(search))
+    
+    /// Long pause for onboarding
+    view.addGestureRecognizer(UILongPressGestureRecognizer(target: self, action: #selector(showOnboardingByRequest)))
   }
   
-  private func show() {
+  /**
+   Show onboading if it is a new installation or upgrade
+   */
+  private func showOnboarding() {
+    let defaults = Defaults()
+    
+    let (versionNumber, buildNumber) = defaults.getBundle()
+    
+    if let rvn = Bundle.main.releaseVersionNumber, let rbn = Bundle.main.buildVersionNumber {
+      if rvn != versionNumber || rbn != buildNumber {
+        defaults.setBundle()
+        
+        showOnBoardingLaunch()
+      }
+    } else {
+      /// Fail safe - we've not been able to find version number/build number
+      defaults.setBundle()
+      
+      showOnBoardingLaunch()
+    }
+  }
+  
+  private func showOnBoardingLaunch() {
     guard let ovc = storyboard?.instantiateViewController(withIdentifier: "OnboardingViewController") as? OnboardingViewController else {
       fatalError("Unable to load OnboardingViewController from storyboard.")
     }

@@ -216,5 +216,6 @@ class MasterViewController: UITableViewController {
     NotificationCenter.default.addObserver(self, selector: #selector(completedSearch(_:)),
                                            name: Notification.Name(Notifications.completedSearch),
                                            object: nil)
+    
   }
 }

@@ -39,7 +39,7 @@ class OnboardingViewController: UIViewController,
   
   //MARK: Delegates
   func onboardingItemsCount() -> Int {
-    return 7
+    return 4
   }
   
   func onboardingWillTransitonToLeaving() {
@@ -82,128 +82,71 @@ class OnboardingViewController: UIViewController,
     let (version,build) = defaults.getBundle()
     
     let pageText0 = """
-    Tired of being angry?  Tired of holding on to a grudge about something that happened years ago?
-    
-    Let's get rid of these crippling grudges that are doing us far more harm then they are anyone else.
-    
+        Constitutions is a complete list of all the constitutions for the fifty states of America, which is presented in an easy to read and search format.
+        
+        Constitutions offers complete off-line access, and there is no need for an internet connection.
     """
     
     let versionLabel = "Version: \(version), Build: \(build)"
   
     let pageText1 = """
-    Start by giving the grudge a name. Next, imagine that whatever it was, it happened to your best friend.
-    
-    Describe it in as much detail as you can. Where were you? Who was there? What was the weather like?
-    
-    You may find it useful to read it out aloud.
+       The user can browse the provisions of the constitution by selecting from the list, or by swiping left and right in the detail screen.
+
+       The user can search all the documents using the search option, (top right of the detail screen), and the matched words are high-lighted.
     """
     
     let pageText2 = """
-    Pretend that your best friend told you about a grudge she's been holding on to for years.
-    
-    What advice would you give her?
-    
-    Would you tell her that it's time to move on, time to let go?
+    The user can select sections and email the sections, either in plain text or as an xml document.
+
     """
 
     let pageText3 = """
-    On a scale of 0 to 10, how bad was the slight?
-    
-    When did this awful thing happen? How old was your friend at the time?
-    
-    Is it really worth upsetting yourself so much about it, or holding on to something that happened decades ago?
+        This onboarding screen is shown the first time that the app is installed or reinstalled and may be seen at any time optionally by long-pressing in the detail screen.
     """
 
-    let pageText4 = """
-    What about me? Have I ever done something as bad, or even worse? The chances are that I have.
-    
-    What about the other guy? Was he really that bad?
-    """
-
-    let pageText5 = """
-    Once you've written down all the gory details, it's now time for you to banish the blasted grudge once and for all.
-
-    Click the button, and set yourself free.
-    """
-
-    let pageText6 = """
-    This help screen is displayed the first time the app is installed. It can be displayed at any time by long-pressing in the home screen.
-
-    Thereafter, long-pressing on any screen will show screen specific help.
-    """
-
-      
     
     return [
       OnboardingItemInfo(informationImage: mainImage,
-                         title: "Grudge Buster",
+                         title: "Constitutions",
                          description: "\(pageText0)\n\(versionLabel)",
                          pageIcon: iconImage,
-                         color: #colorLiteral(red: 0, green: 0.4196325541, blue: 0.6542028785, alpha: 1) ,
-                         titleColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1) ,
-                         descriptionColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1),
+                         color: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1) ,
+                         titleColor: #colorLiteral(red: 0.1215686277, green: 0.01176470611, blue: 0.4235294163, alpha: 1) ,
+                         descriptionColor: #colorLiteral(red: 0.09019608051, green: 0, blue: 0.3019607961, alpha: 1),
                          titleFont: titleFont,
                          descriptionFont: descFont),
       
       OnboardingItemInfo(informationImage: mainImage,
-                         title: "How it works",
+                         title: "Browsing",
                          description: pageText1,
                          pageIcon: iconImage,
-                         color: #colorLiteral(red: 0, green: 0.4196325541, blue: 0.6542028785, alpha: 1) ,
-                         titleColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1) ,
-                         descriptionColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1),
+                         color: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1) ,
+                         titleColor: #colorLiteral(red: 0.09019608051, green: 0, blue: 0.3019607961, alpha: 1) ,
+                         descriptionColor: #colorLiteral(red: 0.09019608051, green: 0, blue: 0.3019607961, alpha: 1),
                          titleFont: titleFont,
                          descriptionFont: descFont),
 
       OnboardingItemInfo(informationImage: mainImage,
-                         title: "What would your best friend say?",
+                         title: "Emails and downloads",
                          description: pageText2,
                          pageIcon: iconImage,
-                         color: #colorLiteral(red: 0, green: 0.4196325541, blue: 0.6542028785, alpha: 1) ,
-                         titleColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1) ,
-                         descriptionColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1),
+                         color: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1) ,
+                         titleColor: #colorLiteral(red: 0.09019608051, green: 0, blue: 0.3019607961, alpha: 1) ,
+                         descriptionColor: #colorLiteral(red: 0.09019608051, green: 0, blue: 0.3019607961, alpha: 1),
                          titleFont: titleFont,
                          descriptionFont: descFont),
 
       OnboardingItemInfo(informationImage: mainImage,
-                         title: "Just how bad was it?",
+                         title: "Onboarding",
                          description: pageText3,
                          pageIcon: iconImage,
-                         color: #colorLiteral(red: 0, green: 0.4196325541, blue: 0.6542028785, alpha: 1) ,
-                         titleColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1) ,
-                         descriptionColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1),
-                         titleFont: titleFont,
-                         descriptionFont: descFont),
-
-      OnboardingItemInfo(informationImage: mainImage,
-                         title: "Me too?",
-                         description: pageText4,
-                         pageIcon: iconImage,
-                         color: #colorLiteral(red: 0, green: 0.4196325541, blue: 0.6542028785, alpha: 1) ,
-                         titleColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1) ,
-                         descriptionColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1),
-                         titleFont: titleFont,
-                         descriptionFont: descFont),
-
-      OnboardingItemInfo(informationImage: mainImage,
-                         title: "Bin that grudge",
-                         description: pageText5,
-                         pageIcon: iconImage,
-                         color: #colorLiteral(red: 0, green: 0.4196325541, blue: 0.6542028785, alpha: 1) ,
-                         titleColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1) ,
-                         descriptionColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1),
-                         titleFont: titleFont,
-                         descriptionFont: descFont),
-
-      OnboardingItemInfo(informationImage: mainImage,
-                         title: "Housekeeping",
-                         description: pageText6,
-                         pageIcon: iconImage,
-                         color: #colorLiteral(red: 0, green: 0.4196325541, blue: 0.6542028785, alpha: 1) ,
-                         titleColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1) ,
-                         descriptionColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1),
+                         color: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1) ,
+                         titleColor: #colorLiteral(red: 0.09019608051, green: 0, blue: 0.3019607961, alpha: 1) ,
+                         descriptionColor: #colorLiteral(red: 0.09019608051, green: 0, blue: 0.3019607961, alpha: 1),
                          titleFont: titleFont,
                          descriptionFont: descFont)
+
+     
     ][index]
   }
 }
