@@ -135,11 +135,11 @@ class MasterViewController: UITableViewController {
   /// Update the selected row when the user has moved by swiping
   /// If we're going forward, and the header that we've moved on to is not expanded,
   /// then expand it.
-  func updateSelectedItem(entry: CalEntry, forward: Bool) {
-    let previousEntry = forward ? calDocument.getPrev(entry: entry) : calDocument.getNext(entry: entry)
+  func updateSelectedItem(newEntry: CalEntry, forward: Bool) {
+    let previousEntry = forward ? calDocument.getPrev(entry: newEntry) : calDocument.getNext(entry: newEntry)
     
     if forward == true {
-      if previousEntry.id != entry.id {
+      if previousEntry.id != newEntry.id {
         if previousEntry.isExpanded == false {
           calDocument.toggleIsExpanded(entry: previousEntry)
         }
@@ -149,28 +149,37 @@ class MasterViewController: UITableViewController {
       // Collapse the row behind us as we move up this list
       
       // If we're at the top of the list then collapse the list
-      let atTopOfList = calDocument.atTopOfList(entry: entry)
+      let atTopOfList = calDocument.atTopOfList(entry: newEntry)
       
       if atTopOfList == true {
         // At the top of the list - collapse the list
-        if entry.isExpanded == true {
-          calDocument.toggleIsExpanded(entry: entry)
+        if newEntry.isExpanded == true {
+          calDocument.toggleIsExpanded(entry: newEntry)
         }
-      } else if previousEntry.sectionId != entry.sectionId  {
-        // Gone back a section - collapse the section we've left
+        
         if previousEntry.isExpanded == true {
           calDocument.toggleIsExpanded(entry: previousEntry)
         }
+      }
+      else {
+        if previousEntry.isExpandable == true {
+          // The previous row was a header
+          // If it was expanded, then collapse it
+         
+          if previousEntry.isExpanded == true {
+            calDocument.toggleIsExpanded(entry: previousEntry)
+          }
+        }
         
-        calDocument.makeVisible(entry: entry)
+        calDocument.makeVisible(entry: newEntry)
       }
     }
     
     tableView.reloadData()
     
     // Highlight the selected row
-    let rowOfEntry = calDocument.getRowNumOfThis(entry: entry)
-    let indexPath  = IndexPath(row: rowOfEntry, section: entry.sectionId)
+    let rowOfEntry = calDocument.getRowNumOfThis(entry: newEntry)
+    let indexPath  = IndexPath(row: rowOfEntry, section: newEntry.sectionId)
     self.tableView.selectRow(at: indexPath, animated: false, scrollPosition: .middle)
   }
   
