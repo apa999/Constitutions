@@ -48,6 +48,11 @@ class CalAttributableString: NSMutableAttributedString {
         link.addAttribute(NSAttributedString.Key.font,            value: font, range: range)
         link.addAttribute(NSAttributedString.Key.backgroundColor, value: backgroundColour, range: range)
       
+        if underlined == true {
+          let textRange = NSMakeRange(0, text.count)
+          link.addAttribute(NSAttributedString.Key.underlineStyle , value: NSUnderlineStyle.single.rawValue, range: textRange)
+        }
+        
         pageAsAttributedString.append(link)
       }
         
@@ -59,6 +64,11 @@ class CalAttributableString: NSMutableAttributedString {
         iLink.addAttribute(NSAttributedString.Key.link,            value: pageText.InternalLink, range: range)
         iLink.addAttribute(NSAttributedString.Key.font,            value: font, range: range)
         iLink.addAttribute(NSAttributedString.Key.backgroundColor, value: backgroundColour, range: range)
+        
+        if underlined == true {
+          let textRange = NSMakeRange(0, text.count)
+          iLink.addAttribute(NSAttributedString.Key.underlineStyle , value: NSUnderlineStyle.single.rawValue, range: textRange)
+        }
         
         pageAsAttributedString.append(iLink)
       }
