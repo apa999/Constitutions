@@ -93,7 +93,7 @@ class MasterViewController: UITableViewController {
       if let detailViewController = delegate as? DetailViewController,
          let detailNavigationController = detailViewController.navigationController {
         
-        if entry.type != .H1 {
+        if entry.type != .H1 &&  entry.type != .H2 {
           splitViewController?.showDetailViewController(detailNavigationController, sender: nil)
         }
       }
