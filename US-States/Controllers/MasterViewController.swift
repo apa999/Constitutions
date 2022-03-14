@@ -13,10 +13,18 @@ class MasterViewController: UITableViewController {
   
   var firstEntry: CalEntry?
   
+  var spinnerViewController : SpinnerViewController?
+  
   // MARK: - Life cycle
   override func viewDidLoad() {
     super.viewDidLoad()
     setUp()
+    
+    if calDocument.dataLoaded == true {
+      tableView.reloadData()
+    } else {
+      createSpinnerView()
+    }
   }
   
   override func viewDidAppear(_ animated: Bool) {
@@ -124,6 +132,12 @@ class MasterViewController: UITableViewController {
       firstEntry = entry
       detailViewController?.entry = entry
     }
+    
+    if let spinnerViewController = spinnerViewController {
+      spinnerViewController.willMove(toParent: nil)
+      spinnerViewController.view.removeFromSuperview()
+      spinnerViewController.removeFromParent()
+    }
   }
   
   @objc func modeHasChanged(){
@@ -211,6 +225,18 @@ class MasterViewController: UITableViewController {
     
     if let _ = detailViewController {
       detailViewController?.entry = calDocument.getEntryForRowAt(section: 0, rowToGet: 0)
+    }
+  }
+  
+  func createSpinnerView() {
+    spinnerViewController = SpinnerViewController()
+    
+    if let spinnerViewController = spinnerViewController {
+      // Add the spinner view controller
+      addChild(spinnerViewController)
+      spinnerViewController.view.frame = view.frame
+      view.addSubview(spinnerViewController.view)
+      spinnerViewController.didMove(toParent: self)
     }
   }
   
