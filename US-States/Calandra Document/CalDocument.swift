@@ -41,6 +41,8 @@ class CalDocument
   /// a sub-list resulting from a search
   enum Mode{ case fullList, search }
   
+  var dataLoaded = false
+  
   var mode = Mode.fullList {
     didSet{
       entries = mode == .fullList ? loadedEntries : searchEntries
@@ -75,6 +77,8 @@ class CalDocument
         let _ = parser.parse(filePath: filePath)
       }, completion:{
         self.entries = self.loadedEntries
+        
+        self.dataLoaded = true
         
         NotificationCenter.default.post(name: Notification.Name(Notifications.dataIsLoaded),
                                         object: nil)
