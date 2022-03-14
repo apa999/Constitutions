@@ -82,9 +82,10 @@ class OnboardingViewController: UIViewController,
     let (version,build) = defaults.getBundle()
     
     let pageText0 = """
-        Constitutions is a complete list of all the constitutions for the fifty states of America, which is presented in an easy to read and search format.
+        Constitutions is a complete list of all the constitutions for the fifty states of America, which are presented in an easy to read and search format.
         
         Constitutions offers complete off-line access, and there is no need for an internet connection.
+    
     """
     
     let versionLabel = "Version: \(version), Build: \(build)"
