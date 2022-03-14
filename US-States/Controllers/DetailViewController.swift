@@ -57,7 +57,7 @@ class DetailViewController: UIViewController {
     }
     
     if let masterViewController = masterViewController {
-      masterViewController.updateSelectedItem(entry: entry, forward: goingForward)
+      masterViewController.updateSelectedItem(newEntry: entry, forward: goingForward)
     }
   }
   
