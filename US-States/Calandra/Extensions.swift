@@ -258,53 +258,43 @@ extension String {
     return ranges
   }
   
-  func isAlpha() -> Bool
-  {
+  func isAlpha() -> Bool {
     return self.rangeOfCharacter(from: CharacterSet.letters.inverted) == nil && self != ""
   }
   
-  func isAlphanumeric() -> Bool
-  {
+  func isAlphanumeric() -> Bool {
     return self.rangeOfCharacter(from: CharacterSet.alphanumerics.inverted) == nil && self != ""
   }
   
-  func isNumeric() -> Bool
-  {
+  func isNumeric() -> Bool {
     return self.rangeOfCharacter(from: CharacterSet.decimalDigits.inverted) == nil && self != ""
   }
   
-  func isAlphanumeric(ignoreDiacritics: Bool = false) -> Bool
-  {
+  func isAlphanumeric(ignoreDiacritics: Bool = false) -> Bool {
     if ignoreDiacritics {
       return self.range(of: "[^a-zA-Z0-9]", options: .regularExpression) == nil && self != ""
-    }
-    else {
+    } else {
       return self.isAlphanumeric()
     }
   }
   
-  func isValidNewNameCharacters() -> Bool
-  {
+  func isValidNewNameCharacters() -> Bool {
     return self.range(of: "[^a-zA-Z0-9@_-]", options: .regularExpression) == nil && self != ""
   }
   
-  func allRanges(of aString: String, options: String.CompareOptions = [], range: Range<String.Index>? = nil, locale: Locale? = nil) -> [Range<Int>]
-  {
+  func allRanges(of aString: String, options: String.CompareOptions = [], range: Range<String.Index>? = nil, locale: Locale? = nil) -> [Range<Int>] {
     return allRanges(of: aString, options: options, range: range, locale: locale).map(indexRangeToIntRange)
   }
   
-  func indexToInt(_ index: String.Index) -> Int
-  {
+  func indexToInt(_ index: String.Index) -> Int {
     return self.distance(from: self.startIndex, to: index)
   }
   
-  func indexRangeToIntRange(_ range: Range<String.Index>) -> Range<Int>
-  {
+  func indexRangeToIntRange(_ range: Range<String.Index>) -> Range<Int> {
     return indexToInt(range.lowerBound) ..< indexToInt(range.upperBound)
   }
   
-  func leftPadding(toLength: Int, withPad character: Character) -> String
-  {
+  func leftPadding(toLength: Int, withPad character: Character) -> String {
     let stringLength = self.count
     if stringLength < toLength {
       return String(repeatElement(character, count: toLength - stringLength)) + self
@@ -318,8 +308,7 @@ extension String {
     return components.filter { !$0.isEmpty }.joined(separator: ",")
   }
   
-  func trimTrailingComma() -> String
-  {
+  func trimTrailingComma() -> String {
     if let trailingWs = self.range(of: ",$", options: .regularExpression) {
       return self.replacingCharacters(in: trailingWs, with: "")
     } else {
@@ -327,8 +316,7 @@ extension String {
     }
   }
   
-  func trimTrailingWhitespace() -> String
-  {
+  func trimTrailingWhitespace() -> String {
     if let trailingWs = self.range(of: "\\s+$", options: .regularExpression) {
       return self.replacingCharacters(in: trailingWs, with: "")
     } else {
@@ -344,15 +332,97 @@ extension String {
    
    - Returns: A `String` object.
    */
-  func truncate(length: Int, trailing: String = "…") -> String
-  {
-    if self.count > length
-    {
+  func truncate(length: Int, trailing: String = "…") -> String {
+    if self.count > length {
       return String(self.prefix(length)) + trailing
-    }
-    else
-    {
+    } else {
       return self
     }
+  }
+}
+
+//MARK: - UIViewController
+extension UIViewController
+{
+  func addGradient()
+  {
+    view.backgroundColor = .clear
+    
+    let gradient = getGradientLayer(bounds: view.bounds)
+    
+    view.backgroundColor = gradientColor(bounds: view.bounds, gradientLayer: gradient)
+  }
+  
+  func setGradientFor(thisView: UIView)
+  {
+    thisView.backgroundColor = .clear
+    
+    let gradient = getGradientLayer(bounds: view.bounds)
+    
+    thisView.backgroundColor = gradientColor(bounds: view.bounds, gradientLayer: gradient)
+  }
+  
+  func getGradientLayer(bounds : CGRect) -> CAGradientLayer
+  {
+    let gradient        = CAGradientLayer()
+    gradient.frame      = bounds
+    gradient.colors     = [UIColor.white.cgColor, UIColor.systemTeal.cgColor]
+    gradient.startPoint = CGPoint(x: 0.0, y: 0.0)
+    gradient.endPoint   = CGPoint(x: 0.0, y: 1.0)
+    
+    return gradient
+  }
+  
+  func gradientColor(bounds: CGRect, gradientLayer :CAGradientLayer) -> UIColor?
+  {
+    //We are creating UIImage to get gradient color.
+    UIGraphicsBeginImageContext(gradientLayer.bounds.size)
+    gradientLayer.render(in: UIGraphicsGetCurrentContext()!)
+    let image = UIGraphicsGetImageFromCurrentImageContext()
+    UIGraphicsEndImageContext()
+    return UIColor(patternImage: image!)
+  }
+}
+
+//MARK: - UIView
+extension UIView
+{
+  func addGradient()
+  {
+    self.backgroundColor = .clear
+    
+    let gradient = getGradientLayer(bounds: self.bounds)
+    
+    self.backgroundColor = gradientColor(bounds: self.bounds, gradientLayer: gradient)
+  }
+  
+  func setGradientFor(thisView: UIView)
+  {
+    thisView.backgroundColor = .clear
+    
+    let gradient = getGradientLayer(bounds: self.bounds)
+    
+    thisView.backgroundColor = gradientColor(bounds: self.bounds, gradientLayer: gradient)
+  }
+  
+  private func getGradientLayer(bounds : CGRect) -> CAGradientLayer
+  {
+    let gradient        = CAGradientLayer()
+    gradient.frame      = bounds
+    gradient.colors     = [UIColor.white.cgColor, UIColor.systemTeal.cgColor]
+    gradient.startPoint = CGPoint(x: 0.0, y: 0.0)
+    gradient.endPoint   = CGPoint(x: 0.0, y: 1.0)
+    
+    return gradient
+  }
+  
+  private func gradientColor(bounds: CGRect, gradientLayer :CAGradientLayer) -> UIColor?
+  {
+    //We are creating UIImage to get gradient color.
+    UIGraphicsBeginImageContext(gradientLayer.bounds.size)
+    gradientLayer.render(in: UIGraphicsGetCurrentContext()!)
+    let image = UIGraphicsGetImageFromCurrentImageContext()
+    UIGraphicsEndImageContext()
+    return UIColor(patternImage: image!)
   }
 }
