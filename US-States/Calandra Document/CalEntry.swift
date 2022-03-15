@@ -64,6 +64,7 @@ class CalEntry: CustomStringConvertible, NSCopying
     s    += "id              : \(id)\n"
     s    += "Section id      : \(sectionId)\n"
     s    += "Parent id       : \(parentId)\n"
+    s    += "Copied id       : \(copiedId)\n"
     s    += "isExpandable    : \(isExpandable)\n"
     s    += "isExpanded      : \(isExpanded)\n"
     s    += "type            : \(String(describing: type))\n"

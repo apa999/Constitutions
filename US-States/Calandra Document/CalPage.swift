@@ -46,6 +46,22 @@ class CalPage: CustomStringConvertible, NSCopying
     return s
   }
   
+  /// Returns the text for this page
+  func getTextForDisplay() -> String {
+  
+    var textAsString = ""
+    
+    for text in pageText {
+      if textAsString == "" {
+        textAsString = text.Text
+      } else {
+        textAsString = "\(textAsString)\r\n\(text.Text)"
+      }
+    }
+    
+    return textAsString
+  }
+  
   //MARK: - Copying
   func copy(with zone: NSZone? = nil) -> Any {
     let copy = CalPage(pageText: pageText, entryID: entryID, pageTitle: pageTitle)

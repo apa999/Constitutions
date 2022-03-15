@@ -17,6 +17,10 @@ class DetailViewController: UIViewController {
   weak var masterViewController: MasterViewController?
   weak var searchViewController: SearchViewController?
   
+  // Emailer
+  var emailer = Emailer()
+  
+  
   //MARK: - Class properties
   var entry: CalEntry! {
     didSet {
@@ -40,6 +44,15 @@ class DetailViewController: UIViewController {
   }
   
   // MARK: - Action handlers
+  @objc func handleEmailTapGesture()
+  {
+    if let entry = entry {
+      if entry.isExpandable == false {
+        emailer.sendEmail(entry: entry)
+      }
+    }
+  }
+  
   @objc func handleSwipes(_ sender:UISwipeGestureRecognizer)
   {
     // Use the goingForward flag to update the selected row in the list
@@ -170,7 +183,16 @@ class DetailViewController: UIViewController {
     view.addGestureRecognizer(leftSwipe)
     view.addGestureRecognizer(rightSwipe)
     
+    // Add the double tap gesture for the emailer
+    let emailTapGesture = UITapGestureRecognizer(target: self, action: #selector(handleEmailTapGesture))
+    emailTapGesture.numberOfTapsRequired = 2
+    view.addGestureRecognizer(emailTapGesture)
+    textView.addGestureRecognizer(emailTapGesture)
+    
     textView.text = ""
+    
+    // Set the emailer's view controller to this view controller
+    emailer.viewController = self
     
     if let entry = entry {
       let pageAsAttributedText = CalAttributableString.calPageAsAttributedString(calPage: entry.page!)

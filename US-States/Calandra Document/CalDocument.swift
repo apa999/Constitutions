@@ -160,6 +160,22 @@ class CalDocument
     return parents.reversed()
   }
   
+  /// Concatonates the parent's titles for a given entry
+  func getTitleFor(entry: CalEntry) -> String {
+    var titles = ""
+    
+    let parents = getParentsFor(entry: entry)
+    for parent in parents.dropFirst() {
+      if titles == "" {
+        titles = "\(parent.title)"
+      } else {
+        titles = "\(titles) - \(parent.title)"
+      }
+    }
+    
+    return titles
+  }
+  
   /// Make this entry visible (and all its parents)
   func makeVisible(entry: CalEntry) {
     var p = entry

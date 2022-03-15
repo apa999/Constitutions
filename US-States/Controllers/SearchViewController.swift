@@ -15,6 +15,8 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
   @IBOutlet weak var titleLabel3: UILabel!
   @IBOutlet weak var textView: UITextView!
  
+  // Emailer
+  var emailer = Emailer()
   
   var entry: CalEntry? {
     didSet{
@@ -76,6 +78,21 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
     if let firstEntry = notification.userInfo?[Notifications.firstSearchEntry] as? CalEntry {
       entry = firstEntry
      }
+  }
+  
+  @objc func handleEmailTapGesture()
+  {
+    if let entry = entry {
+      if entry.isExpandable  == false {
+        if entry.copiedId != -1 {
+          if let originalEntry = calDocument.getEntryWith(id: entry.copiedId) {
+            emailer.sendEmail(entry: originalEntry)
+          }
+        } else {
+          emailer.sendEmail(entry: entry)
+        }
+      }
+    }
   }
   
   @objc func handleSwipes(_ sender:UISwipeGestureRecognizer) {
@@ -203,6 +220,17 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
         textView.attributedText  = NSMutableAttributedString(attributedString: pageAsAttributedText).setFont(textView.font!)
       }
     }
+    
+    
+    // Add the double tap gesture for the emailer
+    let emailTapGesture = UITapGestureRecognizer(target: self, action: #selector(handleEmailTapGesture))
+    emailTapGesture.numberOfTapsRequired = 2
+    view.addGestureRecognizer(emailTapGesture)
+    textView.addGestureRecognizer(emailTapGesture)
+    
+    
+    // Set the emailer's view controller to this view controller
+    emailer.viewController = self
     
     NotificationCenter.default.addObserver(self, selector: #selector(completedSearch(_:)),
                                            name: Notification.Name(Notifications.completedSearch),
