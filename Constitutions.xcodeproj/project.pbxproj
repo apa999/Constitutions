@@ -67,7 +67,7 @@
 		3384D5E827DE4E2000D7E66B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		3384D5EA27DE4FE500D7E66B /* SplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitViewController.swift; sourceTree = "<group>"; };
 		339DDF0227DB9E1900603603 /* CalEntrySelectionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalEntrySelectionDelegate.swift; sourceTree = "<group>"; };
-		33CBE82B27DB537D00A1658B /* US-States.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "US-States.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		33CBE82B27DB537D00A1658B /* Constitutions.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Constitutions.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		33CBE82E27DB537D00A1658B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		33CBE83027DB537D00A1658B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		33CBE83227DB537D00A1658B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -75,9 +75,9 @@
 		33CBE83727DB537E00A1658B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		33CBE83A27DB537E00A1658B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		33CBE83C27DB537E00A1658B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		33CBE84127DB537E00A1658B /* US-StatesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "US-StatesTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		33CBE84127DB537E00A1658B /* ConstitutionsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ConstitutionsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		33CBE84527DB537E00A1658B /* US_StatesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = US_StatesTests.swift; sourceTree = "<group>"; };
-		33CBE84B27DB537E00A1658B /* US-StatesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "US-StatesUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		33CBE84B27DB537E00A1658B /* ConstitutionsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ConstitutionsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		33CBE84F27DB537E00A1658B /* US_StatesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = US_StatesUITests.swift; sourceTree = "<group>"; };
 		33CBE85127DB537E00A1658B /* US_StatesUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = US_StatesUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		33CBE86327DB544300A1658B /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -137,9 +137,9 @@
 		33CBE82C27DB537D00A1658B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				33CBE82B27DB537D00A1658B /* US-States.app */,
-				33CBE84127DB537E00A1658B /* US-StatesTests.xctest */,
-				33CBE84B27DB537E00A1658B /* US-StatesUITests.xctest */,
+				33CBE82B27DB537D00A1658B /* Constitutions.app */,
+				33CBE84127DB537E00A1658B /* ConstitutionsTests.xctest */,
+				33CBE84B27DB537E00A1658B /* ConstitutionsUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -241,9 +241,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		33CBE82A27DB537D00A1658B /* US-States */ = {
+		33CBE82A27DB537D00A1658B /* Constitutions */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 33CBE85527DB537E00A1658B /* Build configuration list for PBXNativeTarget "US-States" */;
+			buildConfigurationList = 33CBE85527DB537E00A1658B /* Build configuration list for PBXNativeTarget "Constitutions" */;
 			buildPhases = (
 				33CBE82727DB537D00A1658B /* Sources */,
 				33CBE82827DB537D00A1658B /* Frameworks */,
@@ -253,17 +253,17 @@
 			);
 			dependencies = (
 			);
-			name = "US-States";
+			name = Constitutions;
 			packageProductDependencies = (
 				3384D5E227DE4A2500D7E66B /* PaperOnboarding */,
 			);
 			productName = "US-States";
-			productReference = 33CBE82B27DB537D00A1658B /* US-States.app */;
+			productReference = 33CBE82B27DB537D00A1658B /* Constitutions.app */;
 			productType = "com.apple.product-type.application";
 		};
-		33CBE84027DB537E00A1658B /* US-StatesTests */ = {
+		33CBE84027DB537E00A1658B /* ConstitutionsTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 33CBE85827DB537E00A1658B /* Build configuration list for PBXNativeTarget "US-StatesTests" */;
+			buildConfigurationList = 33CBE85827DB537E00A1658B /* Build configuration list for PBXNativeTarget "ConstitutionsTests" */;
 			buildPhases = (
 				33CBE83D27DB537E00A1658B /* Sources */,
 				33CBE83E27DB537E00A1658B /* Frameworks */,
@@ -274,14 +274,14 @@
 			dependencies = (
 				33CBE84327DB537E00A1658B /* PBXTargetDependency */,
 			);
-			name = "US-StatesTests";
+			name = ConstitutionsTests;
 			productName = "US-StatesTests";
-			productReference = 33CBE84127DB537E00A1658B /* US-StatesTests.xctest */;
+			productReference = 33CBE84127DB537E00A1658B /* ConstitutionsTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		33CBE84A27DB537E00A1658B /* US-StatesUITests */ = {
+		33CBE84A27DB537E00A1658B /* ConstitutionsUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 33CBE85B27DB537E00A1658B /* Build configuration list for PBXNativeTarget "US-StatesUITests" */;
+			buildConfigurationList = 33CBE85B27DB537E00A1658B /* Build configuration list for PBXNativeTarget "ConstitutionsUITests" */;
 			buildPhases = (
 				33CBE84727DB537E00A1658B /* Sources */,
 				33CBE84827DB537E00A1658B /* Frameworks */,
@@ -292,9 +292,9 @@
 			dependencies = (
 				33CBE84D27DB537E00A1658B /* PBXTargetDependency */,
 			);
-			name = "US-StatesUITests";
+			name = ConstitutionsUITests;
 			productName = "US-StatesUITests";
-			productReference = 33CBE84B27DB537E00A1658B /* US-StatesUITests.xctest */;
+			productReference = 33CBE84B27DB537E00A1658B /* ConstitutionsUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -320,7 +320,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 33CBE82627DB537D00A1658B /* Build configuration list for PBXProject "US-States" */;
+			buildConfigurationList = 33CBE82627DB537D00A1658B /* Build configuration list for PBXProject "Constitutions" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -336,9 +336,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				33CBE82A27DB537D00A1658B /* US-States */,
-				33CBE84027DB537E00A1658B /* US-StatesTests */,
-				33CBE84A27DB537E00A1658B /* US-StatesUITests */,
+				33CBE82A27DB537D00A1658B /* Constitutions */,
+				33CBE84027DB537E00A1658B /* ConstitutionsTests */,
+				33CBE84A27DB537E00A1658B /* ConstitutionsUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -426,12 +426,12 @@
 /* Begin PBXTargetDependency section */
 		33CBE84327DB537E00A1658B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 33CBE82A27DB537D00A1658B /* US-States */;
+			target = 33CBE82A27DB537D00A1658B /* Constitutions */;
 			targetProxy = 33CBE84227DB537E00A1658B /* PBXContainerItemProxy */;
 		};
 		33CBE84D27DB537E00A1658B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 33CBE82A27DB537D00A1658B /* US-States */;
+			target = 33CBE82A27DB537D00A1658B /* Constitutions */;
 			targetProxy = 33CBE84C27DB537E00A1658B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -592,7 +592,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "CalandraLark.US-States";
+				PRODUCT_BUNDLE_IDENTIFIER = CalandraLark.Constitutions;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -620,7 +620,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "CalandraLark.US-States";
+				PRODUCT_BUNDLE_IDENTIFIER = CalandraLark.Constitutions;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -644,7 +644,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/US-States.app/US-States";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Constitutions.app/Constitutions";
 			};
 			name = Debug;
 		};
@@ -664,7 +664,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/US-States.app/US-States";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Constitutions.app/Constitutions";
 			};
 			name = Release;
 		};
@@ -707,7 +707,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		33CBE82627DB537D00A1658B /* Build configuration list for PBXProject "US-States" */ = {
+		33CBE82627DB537D00A1658B /* Build configuration list for PBXProject "Constitutions" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				33CBE85327DB537E00A1658B /* Debug */,
@@ -716,7 +716,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		33CBE85527DB537E00A1658B /* Build configuration list for PBXNativeTarget "US-States" */ = {
+		33CBE85527DB537E00A1658B /* Build configuration list for PBXNativeTarget "Constitutions" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				33CBE85627DB537E00A1658B /* Debug */,
@@ -725,7 +725,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		33CBE85827DB537E00A1658B /* Build configuration list for PBXNativeTarget "US-StatesTests" */ = {
+		33CBE85827DB537E00A1658B /* Build configuration list for PBXNativeTarget "ConstitutionsTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				33CBE85927DB537E00A1658B /* Debug */,
@@ -734,7 +734,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		33CBE85B27DB537E00A1658B /* Build configuration list for PBXNativeTarget "US-StatesUITests" */ = {
+		33CBE85B27DB537E00A1658B /* Build configuration list for PBXNativeTarget "ConstitutionsUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				33CBE85C27DB537E00A1658B /* Debug */,
