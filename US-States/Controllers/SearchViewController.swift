@@ -18,6 +18,8 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
   // Emailer
   var emailer = Emailer()
   
+  var spinnerViewController : SpinnerViewController?
+  
   var entry: CalEntry? {
     didSet{
       configureScreen()
@@ -78,6 +80,12 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
     if let firstEntry = notification.userInfo?[Notifications.firstSearchEntry] as? CalEntry {
       entry = firstEntry
      }
+    
+    if let spinnerViewController = spinnerViewController {
+      spinnerViewController.willMove(toParent: nil)
+      spinnerViewController.view.removeFromSuperview()
+      spinnerViewController.removeFromParent()
+    }
   }
   
   @objc func handleEmailTapGesture()
@@ -143,6 +151,19 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
       }
     }
   }
+  
+  private func createSpinnerView() {
+    spinnerViewController = SpinnerViewController()
+    
+    if let spinnerViewController = spinnerViewController {
+      // Add the spinner view controller
+      addChild(spinnerViewController)
+      spinnerViewController.view.frame = view.frame
+      view.addSubview(spinnerViewController.view)
+      spinnerViewController.didMove(toParent: self)
+    }
+  }
+  
   
   /// Highlights the search string in the text
   private func generateAttributedString(with searchTerm: String,
