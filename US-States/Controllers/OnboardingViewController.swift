@@ -98,6 +98,8 @@ class OnboardingViewController: UIViewController,
     
     let pageText2 = """
     The user can select sections and email the sections by double-tapping in the detail and search screens.
+    
+    A link is provided to the original, source document for the state's constitution in the "State Information" section. The user can access the origfinal document by tapping the link
     """
 
     let pageText3 = """
