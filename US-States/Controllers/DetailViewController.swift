@@ -81,8 +81,7 @@ class DetailViewController: UIViewController {
     }
     
     searchViewController = svc
-    
-    searchViewController?.entry = entry
+  
     searchViewController?.masterViewController = masterViewController
     navigationController?.pushViewController(searchViewController!, animated: true)
   }
