@@ -97,8 +97,7 @@ class OnboardingViewController: UIViewController,
     """
     
     let pageText2 = """
-    The user can select sections and email the sections, either in plain text or as an xml document.
-
+    The user can select sections and email the sections by double-tapping in the detail and search screens.
     """
 
     let pageText3 = """
