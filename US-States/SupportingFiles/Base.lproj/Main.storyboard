@@ -12,7 +12,7 @@
         <!--Detail View Controller-->
         <scene sceneID="MVb-2x-unM">
             <objects>
-                <viewController id="UXA-L7-4Vr" customClass="DetailViewController" customModule="US_States" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="UXA-L7-4Vr" customClass="DetailViewController" customModule="Constitutions" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="icO-wn-U8n">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -76,10 +76,10 @@
             </objects>
             <point key="canvasLocation" x="473.91304347826093" y="539.73214285714278"/>
         </scene>
-        <!--Search View Controller-->
+        <!--Search-->
         <scene sceneID="kdC-cK-Iqg">
             <objects>
-                <viewController storyboardIdentifier="SearchViewController" title="Search View Controller" id="zyg-dz-7Ad" customClass="SearchViewController" customModule="US_States" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SearchViewController" title="Search" id="zyg-dz-7Ad" customClass="SearchViewController" customModule="Constitutions" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5OZ-T7-ZoG">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -150,7 +150,7 @@
         <!--States-->
         <scene sceneID="EPx-fz-FFP">
             <objects>
-                <tableViewController clearsSelectionOnViewWillAppear="NO" id="Tpf-9W-8Ky" customClass="MasterViewController" customModule="US_States" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController clearsSelectionOnViewWillAppear="NO" id="Tpf-9W-8Ky" customClass="MasterViewController" customModule="Constitutions" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="HSp-Ij-Wlz">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -189,7 +189,7 @@
         <!--Navigation Controller-->
         <scene sceneID="2TP-as-lWQ">
             <objects>
-                <navigationController id="Pdk-Uh-CXa" customClass="NavigationController" customModule="US_States" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController id="Pdk-Uh-CXa" customClass="NavigationController" customModule="Constitutions" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="BoZ-lw-vue">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -205,7 +205,7 @@
         <!--Split View Controller-->
         <scene sceneID="yK0-bR-3OV">
             <objects>
-                <splitViewController title="Split View Controller" allowDoubleColumnStyle="YES" id="r4w-Xs-ZCo" customClass="SplitViewController" customModule="US_States" customModuleProvider="target" sceneMemberID="viewController">
+                <splitViewController title="Split View Controller" allowDoubleColumnStyle="YES" id="r4w-Xs-ZCo" customClass="SplitViewController" customModule="Constitutions" customModuleProvider="target" sceneMemberID="viewController">
                     <connections>
                         <segue destination="Pdk-Uh-CXa" kind="relationship" relationship="masterViewController" id="v8C-eb-tkq"/>
                         <segue destination="HYa-MK-E7H" kind="relationship" relationship="detailViewController" id="LgP-5B-uen"/>
@@ -218,7 +218,7 @@
         <!--Onboarding View Controller-->
         <scene sceneID="zDE-RI-VI7">
             <objects>
-                <viewController storyboardIdentifier="OnboardingViewController" id="4Rn-Gn-gKh" customClass="OnboardingViewController" customModule="US_States" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OnboardingViewController" id="4Rn-Gn-gKh" customClass="OnboardingViewController" customModule="Constitutions" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7ia-1P-wWh">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -234,7 +234,7 @@
         <!--Navigation Controller-->
         <scene sceneID="s0I-BQ-uZC">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HYa-MK-E7H" customClass="NavigationController" customModule="US_States" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HYa-MK-E7H" customClass="NavigationController" customModule="Constitutions" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="r7b-1U-boJ">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
