@@ -228,7 +228,7 @@ class MasterViewController: UITableViewController {
     }
   }
   
-  func createSpinnerView() {
+  private func createSpinnerView() {
     spinnerViewController = SpinnerViewController()
     
     if let spinnerViewController = spinnerViewController {
