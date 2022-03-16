@@ -65,10 +65,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
   //MARK: - Search bar delegate
   func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
     
-    showSpinner()
-    
     // Dismiss the keyboard
-    
     searchBar.resignFirstResponder()
     
     if let searchText = searchBar.text {
