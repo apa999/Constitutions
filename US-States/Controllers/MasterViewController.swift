@@ -118,15 +118,7 @@ class MasterViewController: UITableViewController {
   
   
   //MARK: - Observers
-  
-  @objc func completedSearch(_ notification: NSNotification) {
-    
-    if let firstEntry = notification.userInfo?[Notifications.firstSearchEntry] as? CalEntry {
-      updateSelectedItemForSearch(entry: firstEntry, forward: true)
-     }
-  }
-  
-  @objc func dataIsLoaded() {
+  @objc func dataHasChanged() {
     tableView.reloadData()
     
     // This is the first time the data has been loaded.
@@ -143,11 +135,7 @@ class MasterViewController: UITableViewController {
       spinnerViewController.removeFromParent()
     }
   }
-  
-  @objc func modeHasChanged(){
-    tableView.reloadData()
-  }
-  
+
   //MARK: - Public functions
   
   /// Update the selected row when the user has moved by swiping
@@ -206,7 +194,10 @@ class MasterViewController: UITableViewController {
     
     let searchSection = calDocument.getSearchSectionForThis(entry: entry)
     let indexPath  = IndexPath(row: 0, section: searchSection)
-    self.tableView.selectRow(at: indexPath, animated: false, scrollPosition: .middle)
+    
+    if searchSection > 0 {
+      self.tableView.selectRow(at: indexPath, animated: false, scrollPosition: .middle)
+    }
   }
   
   //MARK: - Private functions
@@ -246,17 +237,8 @@ class MasterViewController: UITableViewController {
   
   /// Set up
   private func setUp() {
-    NotificationCenter.default.addObserver(self, selector: #selector(dataIsLoaded),
-                                           name: Notification.Name(Notifications.dataIsLoaded),
+    NotificationCenter.default.addObserver(self, selector: #selector(dataHasChanged),
+                                           name: Notification.Name(Notifications.dataHasChanged),
                                            object: nil)
-    
-    NotificationCenter.default.addObserver(self, selector: #selector(modeHasChanged),
-                                           name: Notification.Name(Notifications.modeHasChanged),
-                                           object: nil)
-    
-    NotificationCenter.default.addObserver(self, selector: #selector(completedSearch(_:)),
-                                           name: Notification.Name(Notifications.completedSearch),
-                                           object: nil)
-    
   }
 }

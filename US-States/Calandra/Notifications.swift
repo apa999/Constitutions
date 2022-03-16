@@ -39,8 +39,16 @@ import Foundation
 
 struct Notifications
 {
-  static let dataIsLoaded     = "dataIsLoaded"
-  static let modeHasChanged   = "modeHasChanged"
+  /// Broadcast by CalDocument when the data changes for any reason
+  /// Master listens so it knows when to refresh the list
+  static let dataHasChanged   = "dataHasChanged"
+  
+  
+  /// Broadcast by CalDocument when the search completes
+  /// Search View Controller listens so it can close the spinner and refresh
+  /// Master View Controller listens so it can position the list on the first entry
   static let completedSearch  = "completedSearch"
+  
+  /// Key used to identify first search entry, returned as part of the completedSearch notification
   static let firstSearchEntry = "firstSearchEntry"
 }

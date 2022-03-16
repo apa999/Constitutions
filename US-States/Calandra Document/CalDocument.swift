@@ -46,9 +46,8 @@ class CalDocument
   var mode = Mode.fullList {
     didSet{
       entries = mode == .fullList ? loadedEntries : searchEntries
-      
-      NotificationCenter.default.post(name: Notification.Name(Notifications.modeHasChanged),
-                                      object: nil)
+   
+      NotificationCenter.default.post(name: Notification.Name(Notifications.dataHasChanged),object: nil)
     }
   }
   
@@ -80,7 +79,7 @@ class CalDocument
         
         self.dataLoaded = true
         
-        NotificationCenter.default.post(name: Notification.Name(Notifications.dataIsLoaded),
+        NotificationCenter.default.post(name: Notification.Name(Notifications.dataHasChanged),
                                         object: nil)
       })
     }
@@ -199,20 +198,31 @@ class CalDocument
   }
   
   /// Searches the **all** entries and returns an array of entries that contains the string
-  func search(forString: String)
-  {
-    searchEntries = searchEngine.search(forString: forString)
+  func search(forString: String) {
     
-    var firstEntry : CalEntry?
-    if searchEntries.count > 0 {
-      firstEntry = searchEntries.first!
-    }
+    var entryDataDict:[String: CalEntry?]?
     
-    let entryDataDict:[String: CalEntry?] = [Notifications.firstSearchEntry: firstEntry]
-    
-    NotificationCenter.default.post(name: Notification.Name(Notifications.completedSearch),
-                                    object: nil,
-                                    userInfo: entryDataDict as [AnyHashable : Any])
+    DispatchQueue.background(background: {
+        
+      self.searchEntries = self.searchEngine.search(forString: forString)
+      
+      var firstEntry : CalEntry?
+      
+      if self.searchEntries.count > 0 {
+        firstEntry = self.searchEntries.first!
+      }
+      
+      entryDataDict = [Notifications.firstSearchEntry: firstEntry]
+    }, completion:{
+      
+      self.mode = .search
+      
+      NotificationCenter.default.post(name: Notification.Name(Notifications.completedSearch),
+                                      object: nil,
+                                      userInfo: entryDataDict! as [AnyHashable : Any])
+      
+      NotificationCenter.default.post(name: Notification.Name(Notifications.dataHasChanged), object: nil)
+    })
   }
   
   /// Searches **recursively** through the enties provided

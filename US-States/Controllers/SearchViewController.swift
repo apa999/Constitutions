@@ -59,6 +59,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
   }
   
   override func viewDidDisappear(_ animated: Bool) {
+    /// - Important: CalDocument.search() updated the mode to ".search", but we  must reset it here
     calDocument.mode = .fullList
   }
   
@@ -68,12 +69,13 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
     // Dismiss the keyboard
     searchBar.resignFirstResponder()
     
+    showSpinner()
+    
     if let searchText = searchBar.text {
       self.searchText = searchText
       
+      /// - Important: CalDocument.search() will update the mode to ".search"
       calDocument.search(forString: searchText)
-   
-      calDocument.mode = .search
     }
   }
   
@@ -196,9 +198,14 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
     titleLabel2.isHidden = false
     titleLabel3.isHidden = false
     
-    guard let originalEntry = calDocument.getEntryWith(id: entry.copiedId)  else { return }
+    var parents = [CalEntry]()
     
-    let parents = calDocument.getParentsFor(entry: originalEntry)
+    if let originalEntry = calDocument.getEntryWith(id: entry.copiedId) {
+      parents = calDocument.getParentsFor(entry: originalEntry)
+    }
+    else {
+      parents = [entry]
+    }
     
     var titleToDisplay = ""
     for p in parents {

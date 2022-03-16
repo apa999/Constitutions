@@ -12,7 +12,7 @@ class CalSearchEngine {
   /// Searches all the loaded entries
   func search(forString: String) -> [CalEntry] {
     var matchedEntries = [CalEntry]()
-    
+ 
     for entry in calDocument.loadedEntries {
       if let page = entry.page {
         if page.contains(forString) {
@@ -21,8 +21,15 @@ class CalSearchEngine {
       }
     }
     
-    let updatedCalEntries = updateSearchEntries(matchedEntries: matchedEntries)
+    var updatedCalEntries = updateSearchEntries(matchedEntries: matchedEntries)
     
+    if updatedCalEntries.count == 0 {
+      let noEntriesFound = CalEntry(title: "No entries found",
+                                    number: "0",
+                                    isExpanded: false,
+                                    type: .H2, parentId: -1)
+      updatedCalEntries.append(noEntriesFound)
+    }
     return updatedCalEntries
   }
   
