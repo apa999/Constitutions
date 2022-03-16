@@ -101,7 +101,7 @@ class MasterViewController: UITableViewController {
       if let detailViewController = delegate as? DetailViewController,
          let detailNavigationController = detailViewController.navigationController {
         
-        if entry.type != .H1 &&  entry.type != .H2 {
+        if entry.isExpandable == false {
           splitViewController?.showDetailViewController(detailNavigationController, sender: nil)
         }
       }
