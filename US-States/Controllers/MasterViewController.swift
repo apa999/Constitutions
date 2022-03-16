@@ -26,7 +26,7 @@ class MasterViewController: UITableViewController {
     if calDocument.dataLoaded == true {
       tableView.reloadData()
     } else {
-      createSpinnerView()
+      showSpinner()
     }
   }
   
@@ -232,7 +232,7 @@ class MasterViewController: UITableViewController {
     }
   }
   
-  private func createSpinnerView() {
+  private func showSpinner() {
     spinnerViewController = SpinnerViewController()
     
     if let spinnerViewController = spinnerViewController {
