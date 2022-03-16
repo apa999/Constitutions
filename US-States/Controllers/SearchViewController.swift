@@ -65,11 +65,13 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
   //MARK: - Search bar delegate
   func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
     
+    showSpinner()
+    
     // Dismiss the keyboard
     
     searchBar.resignFirstResponder()
-    if let searchText = searchBar.text
-    {
+    
+    if let searchText = searchBar.text {
       self.searchText = searchText
       
       calDocument.search(forString: searchText)
@@ -156,7 +158,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
     }
   }
   
-  private func createSpinnerView() {
+  private func showSpinner() {
     spinnerViewController = SpinnerViewController()
     
     if let spinnerViewController = spinnerViewController {
