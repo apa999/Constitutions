@@ -40,7 +40,9 @@ class DetailViewController: UIViewController {
   }
   
   override func viewDidAppear(_ animated: Bool) {
-    assignMasterViewController()
+    if masterViewController == nil {
+      assignMasterViewController()
+    }
   }
   
   // MARK: - Action handlers
@@ -97,7 +99,8 @@ class DetailViewController: UIViewController {
   
   // MARK: - Private functions
   
-  /// Assigns the master view controller
+  /// Assigns the master view controller - this works when we have a split view
+  /// but if running on an iPhone, then the svc has one child, and we can't get the master
   private func assignMasterViewController() {
     
     if splitViewController?.children.count == 2 {

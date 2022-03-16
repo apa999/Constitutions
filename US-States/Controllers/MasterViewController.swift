@@ -102,6 +102,7 @@ class MasterViewController: UITableViewController {
          let detailNavigationController = detailViewController.navigationController {
         
         if entry.isExpandable == false {
+          detailViewController.masterViewController = self
           splitViewController?.showDetailViewController(detailNavigationController, sender: nil)
         }
       }
