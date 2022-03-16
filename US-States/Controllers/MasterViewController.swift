@@ -9,6 +9,9 @@ import UIKit
 
 class MasterViewController: UITableViewController {
   weak var detailViewController: DetailViewController?
+  
+  /// Use the delegate to show the detail screen when using iPhone
+  /// - Important: Remember to update SceneDelegate.willConnectTo
   weak var delegate: CalEntrySelectionDelegate?
   
   var firstEntry: CalEntry?
