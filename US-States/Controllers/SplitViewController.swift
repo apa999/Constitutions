@@ -13,5 +13,8 @@ class SplitViewController: UISplitViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    // This forces calDocument to load
+    let _ = calDocument.loadedEntries.count
   }
 }
