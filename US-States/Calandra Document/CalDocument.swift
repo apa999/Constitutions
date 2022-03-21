@@ -142,6 +142,28 @@ class CalDocument
     return entries.first!.id == entry.id
   }
   
+  
+  // True if the entry, __or any of its children__ are bookmarked
+  func bookmarked(entry: CalEntry) -> Bool {
+    
+    var isBookmarked = false
+    
+    if entry.isBookmarked == true {
+      return true
+    } else {
+      if entry.isExpandable == true {
+        for child in entry.children {
+          isBookmarked = bookmarked(entry: child)
+          if isBookmarked == true {
+            break
+          }
+        }
+      }
+    }
+  
+    return isBookmarked
+  }
+  
   // Get parents of the entry
   func getParentsFor(entry: CalEntry) -> [CalEntry] {
     var parents = [CalEntry]()
@@ -190,6 +212,20 @@ class CalDocument
     // Don't forget the top entry
     if p.isExpanded == false {
       p.toggleIsExpanded()
+    }
+  }
+  
+  func toggleIsBookmarked(entry: CalEntry) {
+    entry.toggleIsBookmarked()
+    
+    if entry.isBookmarked {
+      let copyofEntry = entry.copy() as! CalEntry
+      
+      bookMarks.append(copyofEntry)
+    } else {
+      if let index = bookMarks.firstIndex(where: {$0.copiedId == entry.id}) {
+        bookMarks.remove(at: index)
+      }
     }
   }
   

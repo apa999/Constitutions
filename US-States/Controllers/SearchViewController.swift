@@ -93,7 +93,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
     }
   }
   
-  @objc func handleEmailTapGesture()
+  @objc func handleBookmarkTapGesture()
   {
     if let entry = entry {
       if entry.isExpandable  == false {
@@ -268,10 +268,10 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
     
     
     // Add the double tap gesture for the emailer
-    let emailTapGesture = UITapGestureRecognizer(target: self, action: #selector(handleEmailTapGesture))
-    emailTapGesture.numberOfTapsRequired = 2
-    view.addGestureRecognizer(emailTapGesture)
-    textView.addGestureRecognizer(emailTapGesture)
+    let bookmarkTapGesture = UITapGestureRecognizer(target: self, action: #selector(handleBookmarkTapGesture))
+    bookmarkTapGesture.numberOfTapsRequired = 2
+    view.addGestureRecognizer(bookmarkTapGesture)
+    textView.addGestureRecognizer(bookmarkTapGesture)
     
     
     // Set the emailer's view controller to this view controller

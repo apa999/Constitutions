@@ -83,6 +83,12 @@ class MasterViewController: UITableViewController {
       }
       
       cell.accessoryType = entry.isExpandable == true ? .disclosureIndicator : .none
+      
+      if calDocument.bookmarked(entry: entry) {
+        cell.textLabel?.backgroundColor = .cyan
+      } else {
+        cell.textLabel?.backgroundColor = nil
+      }
     }
   
     return cell

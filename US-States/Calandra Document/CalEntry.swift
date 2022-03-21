@@ -45,6 +45,7 @@ class CalEntry: CustomStringConvertible, NSCopying
   
   private (set) var sectionId     = -1
   private (set) var isExpanded    = false
+  private (set) var isBookmarked = false
   
   var parentId      = -1
   var children      = [CalEntry]()
@@ -67,6 +68,7 @@ class CalEntry: CustomStringConvertible, NSCopying
     s    += "Copied id       : \(copiedId)\n"
     s    += "isExpandable    : \(isExpandable)\n"
     s    += "isExpanded      : \(isExpanded)\n"
+    s    += "isBookmarked    : \(isBookmarked)\n"
     s    += "type            : \(String(describing: type))\n"
     s    += "page            : \(String(describing: page))\n"
     
@@ -113,6 +115,10 @@ class CalEntry: CustomStringConvertible, NSCopying
   func resetTypeTo(_ newType: EntryType)
   {
     self.type = newType
+  }
+  
+  func toggleIsBookmarked() {
+    isBookmarked.toggle()
   }
   
   /// Toggles the isExpanded flag
