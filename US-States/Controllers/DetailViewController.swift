@@ -88,6 +88,16 @@ class DetailViewController: UIViewController {
     navigationController?.pushViewController(searchViewController!, animated: true)
   }
   
+  // Share the text
+  @objc func shareTapped() {
+    
+    if let textToShare = textView.text {
+      let vc = UIActivityViewController(activityItems: [textToShare], applicationActivities: [])
+      vc.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
+      present(vc, animated: true)
+    }
+  }
+  
   /**
    The user has long-pressed in the home screen so show the onboarding
    */
@@ -176,6 +186,11 @@ class DetailViewController: UIViewController {
   }
   
   private func setUp() {
+    
+    navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action,
+                                                       target: self,
+                                                       action: #selector(shareTapped))
+    
     let leftSwipe  = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes(_:)))
     let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes(_:)))
     

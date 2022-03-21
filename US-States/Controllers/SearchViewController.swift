@@ -130,6 +130,16 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
     }
   }
   
+  // Share the text
+  @objc func shareTapped() {
+    
+    if let textToShare = textView.text {
+      let vc = UIActivityViewController(activityItems: [textToShare], applicationActivities: [])
+      vc.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
+      present(vc, animated: true)
+    }
+  }
+  
   //MARK: - Private functions
   
   /// Configures the screen
@@ -229,6 +239,10 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
   }
   
   private func setUp() {
+    navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action,
+                                                       target: self,
+                                                       action: #selector(shareTapped))
+    
     let leftSwipe  = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes(_:)))
     let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes(_:)))
     
