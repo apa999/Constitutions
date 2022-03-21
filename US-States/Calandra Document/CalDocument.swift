@@ -33,6 +33,8 @@ class CalDocument
   /// Search entries - stores the matched entries from a search
   var searchEntries = [CalEntry]()
   
+  var bookMarks = [CalEntry]()
+  
   /// Entries - The working array of entries in this document.
   /// This could be either the loaded entries, or the search entries.
   var entries = [CalEntry]()
