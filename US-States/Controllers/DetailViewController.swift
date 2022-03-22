@@ -93,7 +93,7 @@ class DetailViewController: UIViewController {
     
     if let textToShare = textView.text {
       let vc = UIActivityViewController(activityItems: [textToShare], applicationActivities: [])
-      vc.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
+      vc.popoverPresentationController?.barButtonItem = navigationItem.leftBarButtonItem
       present(vc, animated: true)
     }
   }
