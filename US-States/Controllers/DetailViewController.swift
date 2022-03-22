@@ -110,6 +110,7 @@ class DetailViewController: UIViewController {
     if segue.identifier == SegueConstants.showSearchViewController {
       if let searchViewController = segue.destination  as? SearchViewController {
         self.searchViewController = searchViewController
+        searchViewController.masterViewController = masterViewController
       }
     } else {
       fatalError("Unrecognised segue.identifier: \(segue.identifier ?? "Nil")")
