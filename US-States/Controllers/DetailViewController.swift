@@ -56,6 +56,9 @@ class DetailViewController: UIViewController {
     // Use the goingForward flag to update the selected row in the list
     var goingForward = false
     
+    //If we're speaking, stop it
+    TextToVoice.stopSpeaking()
+    
     if (sender.direction == .left) {
       // Show the next page
       entry = calDocument.getNext(entry: entry)
@@ -72,18 +75,9 @@ class DetailViewController: UIViewController {
     }
   }
   
-  @objc func search()
+  @objc func searchTapped()
   {
     performSegue(withIdentifier: SegueConstants.showSearchViewController, sender: nil)
-    
-//    guard let svc = storyboard?.instantiateViewController(withIdentifier: "SearchViewController") as? SearchViewController else {
-//      fatalError("Unable to load SearchViewController from storyboard.")
-//    }
-//
-//    searchViewController = svc
-//
-//    searchViewController?.masterViewController = masterViewController
-//    navigationController?.pushViewController(searchViewController!, animated: true)
   }
   
   // Share the text
@@ -94,6 +88,11 @@ class DetailViewController: UIViewController {
       vc.popoverPresentationController?.barButtonItem = navigationItem.leftBarButtonItem
       present(vc, animated: true)
     }
+  }
+  
+  @objc func speakTapped()
+  {
+    TextToVoice.speak(text: textView.text ?? "")
   }
   
   /**
@@ -198,10 +197,10 @@ class DetailViewController: UIViewController {
   private func setUp() {
     
     let share  = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareTapped))
-    let search = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(search))
-    
-    // Add the share and search bar button item to the right
-    navigationItem.rightBarButtonItems = [share, search]
+    let search = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(searchTapped))
+    let speak  = UIBarButtonItem(barButtonSystemItem: .play,   target: self, action: #selector(speakTapped))
+    // Add the share, search and speak bar button item to the right
+    navigationItem.rightBarButtonItems = [share, search, speak]
     
     let leftSwipe  = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes(_:)))
     let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes(_:)))

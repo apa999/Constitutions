@@ -108,6 +108,9 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
     // Use the goingForward flag to update the selected row in the list
     var goingForward = false
     
+    //If we're speaking, stop it
+    TextToVoice.stopSpeaking()
+    
     if let _ = entry {
       if (sender.direction == .left) {
         // Show the next page
@@ -134,6 +137,11 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
       vc.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
       present(vc, animated: true)
     }
+  }
+  
+  @objc func speakTapped()
+  {
+    TextToVoice.speak(text: textView.text ?? "")
   }
   
   //MARK: - Private functions
@@ -235,9 +243,10 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
   }
   
   private func setUp() {
-    navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action,
-                                                        target: self,
-                                                        action: #selector(shareTapped))
+    let share  = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareTapped))
+    let speak  = UIBarButtonItem(barButtonSystemItem: .play,   target: self, action: #selector(speakTapped))
+    // Add the share and speak bar button item to the right
+    navigationItem.rightBarButtonItems = [share, speak]
     
     let leftSwipe  = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes(_:)))
     let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes(_:)))
