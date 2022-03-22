@@ -39,7 +39,7 @@ class OnboardingViewController: UIViewController,
   
   //MARK: Delegates
   func onboardingItemsCount() -> Int {
-    return 4
+    return 5
   }
   
   func onboardingWillTransitonToLeaving() {
@@ -93,16 +93,24 @@ class OnboardingViewController: UIViewController,
     let pageText1 = """
        The user can browse the provisions of the constitution by selecting from the list, or by swiping left and right in the detail screen.
 
-       The user can search all the documents using the search option, (top right of the detail screen), and the matched words are high-lighted.
+        A link is provided to the original, source document for the state's constitution in the "State Information" section. The user can access the original document by tapping the link
     """
     
     let pageText2 = """
-    The user can select sections and email the sections by double-tapping in the detail and search screens.
+    The user can search all the documents using the search option, and the matched words are high-lighted.
     
-    A link is provided to the original, source document for the state's constitution in the "State Information" section. The user can access the origfinal document by tapping the link
+    The user can share sections with other apps, save to files, or email by tapping the "Share" icon.
+        
+    The user can listen to a section by pressing the "Play" button. Tapping it again will stop the reading. Swiping to another section will also stop the reading.
     """
 
     let pageText3 = """
+        A section can be bookmarked by double-tapping the text. The section will then appear with a cyan background in the master list. Double-tapping a bookmarked section removes the bookmark.
+    
+    The user can browse the bookmarks from the search screen. Tap the search icon, and then enter @Bookmarks to the search bar.
+    """
+    
+    let pageText4 = """
         This onboarding screen is shown the first time that the app is installed or reinstalled and may be seen at any time optionally by long-pressing in the detail screen.
     """
 
@@ -129,7 +137,7 @@ class OnboardingViewController: UIViewController,
                          descriptionFont: descFont),
 
       OnboardingItemInfo(informationImage: mainImage,
-                         title: "Emails and downloads",
+                         title: "Searching, sharing, speaking",
                          description: pageText2,
                          pageIcon: iconImage,
                          color: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1) ,
@@ -139,8 +147,18 @@ class OnboardingViewController: UIViewController,
                          descriptionFont: descFont),
 
       OnboardingItemInfo(informationImage: mainImage,
-                         title: "Onboarding",
+                         title: "Bookmarks",
                          description: pageText3,
+                         pageIcon: iconImage,
+                         color: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1) ,
+                         titleColor: #colorLiteral(red: 0.09019608051, green: 0, blue: 0.3019607961, alpha: 1) ,
+                         descriptionColor: #colorLiteral(red: 0.09019608051, green: 0, blue: 0.3019607961, alpha: 1),
+                         titleFont: titleFont,
+                         descriptionFont: descFont),
+      
+      OnboardingItemInfo(informationImage: mainImage,
+                         title: "Onboarding",
+                         description: pageText4,
                          pageIcon: iconImage,
                          color: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1) ,
                          titleColor: #colorLiteral(red: 0.09019608051, green: 0, blue: 0.3019607961, alpha: 1) ,
