@@ -105,6 +105,7 @@ class CalEntry: CustomStringConvertible, NSCopying
     
     copy.sectionId = 0
     copy.copiedId  = id
+    copy.page      = page
     
     return copy
   }
