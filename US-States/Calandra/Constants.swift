@@ -7,5 +7,5 @@
 
 struct SegueConstants
 {
-  static let ShowPaperOnboardingViewController = "ShowPaperOnboardingViewController"
+  static let showSearchViewController          = "showSearchViewController"
 }
