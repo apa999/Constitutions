@@ -15,9 +15,6 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
   @IBOutlet weak var titleLabel3: UILabel!
   @IBOutlet weak var textView: UITextView!
  
-  // Emailer
-  var emailer = Emailer()
-  
   var spinnerViewController : SpinnerViewController?
   
   var entry: CalEntry? {
@@ -105,18 +102,6 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
       
       masterViewController?.tableView.reloadData()
     }
-    
-//    if let entry = entry {
-//      if entry.isExpandable  == false {
-//        if entry.copiedId != -1 {
-//          if let originalEntry = calDocument.getEntryWith(id: entry.copiedId) {
-//            emailer.sendEmail(entry: originalEntry)
-//          }
-//        } else {
-//          emailer.sendEmail(entry: entry)
-//        }
-//      }
-//    }
   }
   
   @objc func handleSwipes(_ sender:UISwipeGestureRecognizer) {
@@ -146,7 +131,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
     
     if let textToShare = textView.text {
       let vc = UIActivityViewController(activityItems: [textToShare], applicationActivities: [])
-      vc.popoverPresentationController?.barButtonItem = navigationItem.leftBarButtonItem
+      vc.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
       present(vc, animated: true)
     }
   }
@@ -250,9 +235,9 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
   }
   
   private func setUp() {
-    navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action,
-                                                       target: self,
-                                                       action: #selector(shareTapped))
+    navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action,
+                                                        target: self,
+                                                        action: #selector(shareTapped))
     
     let leftSwipe  = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes(_:)))
     let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes(_:)))
@@ -283,10 +268,6 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
     bookmarkTapGesture.numberOfTapsRequired = 2
     view.addGestureRecognizer(bookmarkTapGesture)
     textView.addGestureRecognizer(bookmarkTapGesture)
-    
-    
-    // Set the emailer's view controller to this view controller
-    emailer.viewController = self
     
     NotificationCenter.default.addObserver(self, selector: #selector(completedSearch(_:)),
                                            name: Notification.Name(Notifications.completedSearch),

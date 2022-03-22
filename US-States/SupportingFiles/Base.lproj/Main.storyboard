@@ -70,6 +70,7 @@
                         <outlet property="titleLabel1" destination="YcN-26-wJt" id="hYK-fP-Pqj"/>
                         <outlet property="titleLabel2" destination="lRe-24-C5C" id="pBS-jM-GXC"/>
                         <outlet property="titleLabel3" destination="Vjy-Eb-3YX" id="MFM-Yh-rgZ"/>
+                        <segue destination="zyg-dz-7Ad" kind="show" identifier="showSearchViewController" id="x4i-XN-cpM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rQT-qd-zzj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -85,29 +86,29 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="3Sx-6Y-qDO">
-                                <rect key="frame" x="0.0" y="44" width="414" height="51"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="51"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="boG-qt-qJU">
-                                <rect key="frame" x="10" y="105" width="394" height="0.0"/>
+                                <rect key="frame" x="10" y="149" width="394" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <color key="textColor" systemColor="systemBlueColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vue-5e-gLM">
-                                <rect key="frame" x="10" y="115" width="394" height="0.0"/>
+                                <rect key="frame" x="10" y="159" width="394" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <color key="textColor" systemColor="systemBlueColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="evC-J3-haf">
-                                <rect key="frame" x="10" y="125" width="394" height="0.0"/>
+                                <rect key="frame" x="10" y="169" width="394" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" systemColor="systemBlueColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="OXj-zq-Vxu">
-                                <rect key="frame" x="10" y="135" width="394" height="717"/>
+                                <rect key="frame" x="10" y="179" width="394" height="673"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
@@ -135,6 +136,7 @@
                             <constraint firstItem="evC-J3-haf" firstAttribute="leading" secondItem="6sI-gF-w1i" secondAttribute="leading" constant="10" id="vl1-7q-ys2"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="tkC-ey-nff"/>
                     <connections>
                         <outlet property="searchBar" destination="3Sx-6Y-qDO" id="OhJ-XH-fKF"/>
                         <outlet property="textView" destination="OXj-zq-Vxu" id="de4-GM-VLa"/>
@@ -145,7 +147,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vw2-Vu-dLX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1305.7971014492755" y="532.36607142857144"/>
+            <point key="canvasLocation" x="1497" y="539"/>
         </scene>
         <!--States-->
         <scene sceneID="EPx-fz-FFP">

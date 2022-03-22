@@ -17,10 +17,6 @@ class DetailViewController: UIViewController {
   weak var masterViewController: MasterViewController?
   weak var searchViewController: SearchViewController?
   
-  // Emailer
-  var emailer = Emailer()
-  
-  
   //MARK: - Class properties
   var entry: CalEntry! {
     didSet {
@@ -78,14 +74,16 @@ class DetailViewController: UIViewController {
   
   @objc func search()
   {
-    guard let svc = storyboard?.instantiateViewController(withIdentifier: "SearchViewController") as? SearchViewController else {
-      fatalError("Unable to load SearchViewController from storyboard.")
-    }
+    performSegue(withIdentifier: SegueConstants.showSearchViewController, sender: nil)
     
-    searchViewController = svc
-  
-    searchViewController?.masterViewController = masterViewController
-    navigationController?.pushViewController(searchViewController!, animated: true)
+//    guard let svc = storyboard?.instantiateViewController(withIdentifier: "SearchViewController") as? SearchViewController else {
+//      fatalError("Unable to load SearchViewController from storyboard.")
+//    }
+//
+//    searchViewController = svc
+//
+//    searchViewController?.masterViewController = masterViewController
+//    navigationController?.pushViewController(searchViewController!, animated: true)
   }
   
   // Share the text
@@ -104,6 +102,17 @@ class DetailViewController: UIViewController {
   @objc func showOnboardingByRequest(_ recogniser: UITapGestureRecognizer) {
     if (recogniser.state == UITapGestureRecognizer.State.ended ) {
       showOnBoardingLaunch()
+    }
+  }
+  
+  // MARK: - Navigation
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if segue.identifier == SegueConstants.showSearchViewController {
+      if let searchViewController = segue.destination  as? SearchViewController {
+        self.searchViewController = searchViewController
+      }
+    } else {
+      fatalError("Unrecognised segue.identifier: \(segue.identifier ?? "Nil")")
     }
   }
   
@@ -187,9 +196,11 @@ class DetailViewController: UIViewController {
   
   private func setUp() {
     
-    navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action,
-                                                       target: self,
-                                                       action: #selector(shareTapped))
+    let share  = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareTapped))
+    let search = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(search))
+    
+    // Add the share and search bar button item to the right
+    navigationItem.rightBarButtonItems = [share, search]
     
     let leftSwipe  = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes(_:)))
     let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipes(_:)))
@@ -208,20 +219,13 @@ class DetailViewController: UIViewController {
     
     textView.text = ""
     
-    // Set the emailer's view controller to this view controller
-    emailer.viewController = self
-    
     if let entry = entry {
       let pageAsAttributedText = CalAttributableString.calPageAsAttributedString(calPage: entry.page!)
       textView.text = ""
       textView.attributedText  = NSMutableAttributedString(attributedString: pageAsAttributedText).setFont(textView.font!)
     }
     
-    // Add the search bar button item
-    navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search,
-                                                        target: self,
-                                                        action: #selector(search))
-    
+ 
     /// Long pause for onboarding
     view.addGestureRecognizer(UILongPressGestureRecognizer(target: self, action: #selector(showOnboardingByRequest)))
   }
