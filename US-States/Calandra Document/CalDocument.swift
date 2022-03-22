@@ -45,6 +45,8 @@ class CalDocument
   
   var dataLoaded = false
   
+  var defaults = Defaults()
+  
   var mode = Mode.fullList {
     didSet{
       switch mode {
@@ -82,6 +84,8 @@ class CalDocument
         let _ = parser.parse(filePath: filePath)
       }, completion:{
         self.entries = self.loadedEntries
+        
+        self.loadBookmarks()
         
         self.dataLoaded = true
         
@@ -231,6 +235,10 @@ class CalDocument
         bookMarkEntries.remove(at: index)
       }
     }
+    
+    let bookmarkedEntryIds = bookMarkEntries.map({$0.copiedId})
+    
+    defaults.save(bookmarks: bookmarkedEntryIds)
   }
   
   func toggleIsExpanded(entry: CalEntry) {
@@ -484,6 +492,18 @@ class CalDocument
     }
     
     return (entry, thisCurrRow)
+  }
+  
+  private func loadBookmarks() {
+    let bookmarkedEntriesIds = defaults.getBookmarks()
+    
+    for bookmarkedEntriesId in bookmarkedEntriesIds {
+      if let entry = loadedEntries.first(where: {$0.id == bookmarkedEntriesId}) {
+        bookMarkEntries.append(entry)
+        
+        entry.toggleIsBookmarked()
+      }
+    }
   }
   
   // Walk down the children until we find our entry

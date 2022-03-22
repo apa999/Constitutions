@@ -14,6 +14,7 @@ class Defaults {
   var homeDirectory    : NSString!
   var keys             : CFArray!
   
+  var bookmarks : [Int] = []
   
   //MARK:- Static func
   static func exists(key: String) -> Bool {
@@ -26,8 +27,7 @@ class Defaults {
     static let ProVersionKey    = "ProVersionKey"
     static let RevenueCatUser   = "RevenueCatUser"
     static let SearchFromLatest = "SearchFromLatest"
-    static let NumberOfMemories = "NumberOfMemories"
-    static let NumberOfGoes     = "NumberOfGoes"        // Number of times the user has used the app on this device
+    static let bookmarks        = "bookmarks"
   }
   
   //MARK-: Set up
@@ -128,7 +128,16 @@ class Defaults {
     UserDefaults.standard.set(lastSelectDate.timeIntervalSince1970, forKey: "lastSelectDate")
   }
   
+  //MARK: - Save and retrieve the bookmarks
+  func getBookmarks() -> [Int]{
+    bookmarks = UserDefaults.standard.array(forKey: Keys.bookmarks) as? [Int] ?? []
+    
+    return bookmarks
+  }
  
+  func save(bookmarks: [Int]) {
+    UserDefaults.standard.set(bookmarks, forKey: Keys.bookmarks)
+  }
 }
 
 //MARK:- Extensions and Structs
