@@ -69,13 +69,18 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
     // Dismiss the keyboard
     searchBar.resignFirstResponder()
     
-    showSpinner()
-    
+  
     if let searchText = searchBar.text {
       self.searchText = searchText
       
-      /// - Important: CalDocument.search() will update the mode to ".search"
-      calDocument.search(forString: searchText)
+      if searchText.lowercased() == "@bookmarks" {
+        calDocument.mode = .bookmarks
+      } else {
+        showSpinner()
+        
+        /// - Important: CalDocument.search() will update the mode to ".search"
+        calDocument.search(forString: searchText)
+      }
     }
   }
   
@@ -96,16 +101,22 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
   @objc func handleBookmarkTapGesture()
   {
     if let entry = entry {
-      if entry.isExpandable  == false {
-        if entry.copiedId != -1 {
-          if let originalEntry = calDocument.getEntryWith(id: entry.copiedId) {
-            emailer.sendEmail(entry: originalEntry)
-          }
-        } else {
-          emailer.sendEmail(entry: entry)
-        }
-      }
+      calDocument.toggleIsBookmarked(entry: entry)
+      
+      masterViewController?.tableView.reloadData()
     }
+    
+//    if let entry = entry {
+//      if entry.isExpandable  == false {
+//        if entry.copiedId != -1 {
+//          if let originalEntry = calDocument.getEntryWith(id: entry.copiedId) {
+//            emailer.sendEmail(entry: originalEntry)
+//          }
+//        } else {
+//          emailer.sendEmail(entry: entry)
+//        }
+//      }
+//    }
   }
   
   @objc func handleSwipes(_ sender:UISwipeGestureRecognizer) {
@@ -135,7 +146,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
     
     if let textToShare = textView.text {
       let vc = UIActivityViewController(activityItems: [textToShare], applicationActivities: [])
-      vc.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
+      vc.popoverPresentationController?.barButtonItem = navigationItem.leftBarButtonItem
       present(vc, animated: true)
     }
   }
