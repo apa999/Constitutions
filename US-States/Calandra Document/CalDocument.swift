@@ -33,22 +33,26 @@ class CalDocument
   /// Search entries - stores the matched entries from a search
   var searchEntries = [CalEntry]()
   
-  var bookMarks = [CalEntry]()
+  var bookMarkEntries = [CalEntry]()
   
   /// Entries - The working array of entries in this document.
   /// This could be either the loaded entries, or the search entries.
   var entries = [CalEntry]()
   
   /// The document can either listing the full contents, or displaying
-  /// a sub-list resulting from a search
-  enum Mode{ case fullList, search }
+  /// a sub-list resulting from a search, or showing the bookmarks
+  enum Mode{ case fullList, search, bookmarks }
   
   var dataLoaded = false
   
   var mode = Mode.fullList {
     didSet{
-      entries = mode == .fullList ? loadedEntries : searchEntries
-   
+      switch mode {
+        case .fullList : entries = loadedEntries
+        case .search   : entries = searchEntries
+        case .bookmarks: entries = bookMarkEntries
+      }
+     
       NotificationCenter.default.post(name: Notification.Name(Notifications.dataHasChanged),object: nil)
     }
   }
@@ -221,10 +225,10 @@ class CalDocument
     if entry.isBookmarked {
       let copyofEntry = entry.copy() as! CalEntry
       
-      bookMarks.append(copyofEntry)
+      bookMarkEntries.append(copyofEntry)
     } else {
-      if let index = bookMarks.firstIndex(where: {$0.copiedId == entry.id}) {
-        bookMarks.remove(at: index)
+      if let index = bookMarkEntries.firstIndex(where: {$0.copiedId == entry.id}) {
+        bookMarkEntries.remove(at: index)
       }
     }
   }
