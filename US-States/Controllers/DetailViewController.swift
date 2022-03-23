@@ -59,19 +59,21 @@ class DetailViewController: UIViewController {
     //If we're speaking, stop it
     TextToVoice.stopSpeaking()
     
-    if (sender.direction == .left) {
-      // Show the next page
-      entry = calDocument.getNext(entry: entry)
-      goingForward = true
-    }
-    
-    else if (sender.direction == .right) {
-      // Show the previous page
-      entry = calDocument.getPrev(entry: entry)
-    }
-    
-    if let masterViewController = masterViewController {
-      masterViewController.updateSelectedItem(newEntry: entry, forward: goingForward)
+    if let _ = entry {
+      if (sender.direction == .left) {
+        // Show the next page
+        entry = calDocument.getNext(entry: entry)
+        goingForward = true
+      }
+      
+      else if (sender.direction == .right) {
+        // Show the previous page
+        entry = calDocument.getPrev(entry: entry)
+      }
+      
+      if let masterViewController = masterViewController {
+        masterViewController.updateSelectedItem(newEntry: entry, forward: goingForward)
+      }
     }
   }
   
@@ -225,7 +227,7 @@ class DetailViewController: UIViewController {
       textView.attributedText  = NSMutableAttributedString(attributedString: pageAsAttributedText).setFont(textView.font!)
     }
     
- 
+    
     /// Long pause for onboarding
     view.addGestureRecognizer(UILongPressGestureRecognizer(target: self, action: #selector(showOnboardingByRequest)))
   }
